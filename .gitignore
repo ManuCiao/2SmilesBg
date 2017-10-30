@@ -2,6 +2,7 @@
 *~
 __pycache__
 py3_env/
+myvenv/
 db.sqlite3
 /static
 .DS_Store
