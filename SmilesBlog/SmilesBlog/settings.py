@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# change it to FALSE when deploy the  app in production otherwise data are exposed.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'manuciao.pythonanywhere.com']  # add homain/host once you will deploy it.
 
 
 # Application definition
@@ -87,7 +88,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Belfast'
 
 USE_I18N = True
 
@@ -100,3 +101,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
