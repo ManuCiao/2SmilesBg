@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse #build URLs by their name and pass optional parameters
 
 class PublishedManager(models.Manager):
     """Change object manager of the models."""
@@ -27,6 +28,13 @@ class Post(models.Model):
                               default='draft')
     objects = models.Manager() # the default Manager
     published = PublishedManager() # the custom manager
+
+    def get_absolute_url(self):
+        return reverse('blog:post_detail',
+                       args=[self.publish.year,
+                             self.publish.strftime('%m'),
+                             self.publish.strftime('%d'),
+                             self.slug])
 
     class Meta:
         ordering = ('-publish',)
