@@ -37,7 +37,7 @@ class Post(models.Model):
                              self.slug])
 
     class Meta:
-        ordering = ('-publish',)
+        ordering = ('-publish',)  #"-publish" descending order 
 
     def __str__(self):
         return self.title
