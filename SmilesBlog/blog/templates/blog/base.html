@@ -7,7 +7,7 @@
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <header id="top">
       <span>Journey to get the life I want..</span>
       <h1>Manuela's Blog</h1>
     </header>
@@ -15,11 +15,15 @@
       {% block content %}
       {% endblock %}
     </div>
-
     <div id="sidebar">
       <h2>Recent Posts</h2>
         <p>Let's get started..</p>
     </div>
+    
+    <footer id="main-footer">
+      <p>All rights reserved to <a href="#">ManuCiao</a>.</p>
+      <a href="#top">Back to top &raquo;</a>
+    </footer>
 
   </body>
 </html>

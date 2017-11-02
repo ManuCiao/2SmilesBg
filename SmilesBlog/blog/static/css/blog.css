@@ -59,7 +59,6 @@ p {
   font-size: 20px;
 	padding: 0 9px 3px 9px;
 	display: inline-block;
-
 }
 
 #content {
@@ -133,4 +132,19 @@ input[type=submit] {
     font-weight:bold;
     font-size:12px;
     color:#666;
+}
+
+#main-footer{
+  clear: both;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: solid 35px orange;
+}
+
+#main-footer a:link {
+	text-decoration: none;
+  font-size: 25px;
+	color: #FFA949;
+	padding: 0 0 0 3px;
 }
