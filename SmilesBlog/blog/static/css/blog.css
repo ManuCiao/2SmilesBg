@@ -1,60 +1,104 @@
-body { 
+body {
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #878787;
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
 }
 
-a { 
-    color:#00abff;
-    text-decoration:none; 
+header {
+	padding-top: 120px;
+  padding-bottom: 90px;
+  margin-bottom: 50px;
+  background-color: orange;
+  text-align: center;
+
 }
 
-h1 { 
-    font-weight:normal;
-    border-bottom:1px solid #bbb;
-    padding:0 0 10px 0;
+header span {
+	color: white;
+  border-bottom: 2px solid;
+	font-size: 26px;
+  letter-spacing: 1.3px;
+  line-height: 2;
+  padding-bottom: 10px;
+  font-weight: lighter;
+}
+
+a:link {
+	text-decoration: none;
+  font-size: 35px;
+	color: #FFA949;
+	padding: 0 9px 3px 9px;
+	display: inline-block;
+}
+
+h1 {
+	font-size:72px;
+	font-weight: normal;
+	margin-top: 24px;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0,0,0,.3);
+  color: white;
 }
 
 h2 {
+    font-size: 30px;
     font-weight:normal;
     margin:30px 0 0;
 }
 
-#content { 
-    float:left;
-    width:60%;
-    padding:0 0 0 30px; 
+p {
+  color: initial;
+  line-height: 1.6;
+  font-size: 20px;
 }
 
-#sidebar { 
+.step-links a:link{
+  text-decoration: none;
+  font-size: 20px;
+	padding: 0 9px 3px 9px;
+	display: inline-block;
+
+}
+
+#content {
+    float:left;
+    width:60%;
+    padding:0 0 0 30px;
+    color: orange;
+}
+
+#sidebar {
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background:#efefef;
     height:100%;
 }
 
-p.date { 
-    color:#ccc;
+p.date {
+    color: #7d7b7b;
     font-family: georgia, serif;
     font-size: 12px;
-    font-style: italic; 
+    font-style: italic;
 }
 
 /* pagination */
-.pagination { 
-    margin:40px 0; 
+.pagination {
+    margin:40px 0;
     font-weight:bold;
+    color: black;
 }
 
 /* forms */
-label { 
+label {
     float:left;
     clear:both;
     color:#333;
-    margin-bottom:4px; 
+    margin-bottom:4px;
 }
-input, textarea { 
+input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
@@ -69,13 +113,13 @@ input[type=submit] {
     color:#fff;
     padding:10px 20px;
     font-size:14px;
-    text-transform:uppercase; 
+    text-transform:uppercase;
 }
-.errorlist { 
+.errorlist {
     color:#cc0033;
     float:left;
     clear:both;
-    padding-left:10px; 
+    padding-left:10px;
 }
 
 /* comments */

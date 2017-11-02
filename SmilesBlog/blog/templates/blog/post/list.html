@@ -3,7 +3,6 @@
 {% block title %}MS Blog{% endblock %}
 
 {% block content %}
-   <h1>MS Blog</h1>
    {% for post in posts %}
       <h2>
         <a href="{{ post.get_absolute_url }}">
@@ -16,6 +15,6 @@
       {{ post.body|truncatewords:30|linebreaks }}
     {% endfor %}
 
-    {% include "pagination.html" with page=page_obj %} 
+    {% include "pagination.html" with page=page_obj %}
 
 {% endblock %}
