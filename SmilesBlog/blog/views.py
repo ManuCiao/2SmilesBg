@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from .models import Post
+from .forms import EmailPostForm
 
 def post_list(request):
     """Create a list of posts"""
@@ -37,3 +38,23 @@ def post_detail(request, year, month, day, post):
     return render(request,
                   'blog/post/detail.html',
                   {'post': post})
+
+def  post_share(request, post_id):
+    # Retrieve posts by id
+    post = get_object_or_404(Post, id=post_id, status='published')
+
+    if request.method == 'POST':
+        # form was submitted if we get a POST request,
+        # we assume if I get a GET request an empty form has to be displayed
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Form fields passed validation, I can see validation errors
+            # by accessing form.errors
+            cd = form.cleaned_data
+            # if the form data does not validaatee the cleaned_data will
+            # have only the valid fields. it is a dictionary of form fields
+            # and their values.
+        else:
+            form = EmailPostForm()
+        return render(request, 'blog/post/share.html', {'post': post,
+                                                        'form': form})
