@@ -103,3 +103,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# Local SMTP server or defie the configuration of an external SMTP server by adding:
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mn.sabatino@gmail.com'
+EMAIL_HOST_PASSWORD = 'xxx'  # add gmail password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
