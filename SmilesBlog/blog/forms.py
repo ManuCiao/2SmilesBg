@@ -9,8 +9,7 @@ class EmailPostForm(forms.Form):
                                widget=forms.Textarea)
 
 class CommentForm(forms.ModelForm):
-    """use of ModelForm to build a form dynamically from the Comment model """
+    """use of ModelForm to build a form dynamically from the Comment model"""
     class Meta:
         model = Comment
         fields = ('name', 'email', 'body')
-        

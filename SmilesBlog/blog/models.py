@@ -29,6 +29,11 @@ class Post(models.Model):
     objects = models.Manager() # the default Manager
     published = PublishedManager() # the custom manager
 
+    class Meta:
+        ordering = ('-publish',)  #"-publish" descending order
+
+    def __str__(self):
+        return self.title
 
     def get_absolute_url(self):
         return reverse('blog:post_detail',
@@ -37,11 +42,6 @@ class Post(models.Model):
                              self.publish.strftime('%d'),
                              self.slug])
 
-    class Meta:
-        ordering = ('-publish',)  #"-publish" descending order
-
-    def __str__(self):
-        return self.title
 
 class Comment(models.Model):
     """Create a model class tha save comments"""
