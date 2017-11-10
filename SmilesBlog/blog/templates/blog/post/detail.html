@@ -4,13 +4,13 @@
 
 {% block content %}
   <h2>{{ post.title }}</h2>
-  <p class="date">
-    Published {{ post.publish }} by {{ post.author }}
-  </p>
+  <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
   {{ post.body|linebreaks }}
 
-  <p>
-    <a href="{% url "blog:post_share" post.id %}"></a>
-    Share this point
-  </p>
+  <p><a href="{% url "blog:post_share" post.id %}"></a>Share this point</p>
+
+  {% with comments.count as total_comments %}
+      <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+  {% endwith %}
+  
 {% endblock %}
