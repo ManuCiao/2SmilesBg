@@ -29,6 +29,7 @@ class Post(models.Model):
     objects = models.Manager() # the default Manager
     published = PublishedManager() # the custom manager
 
+
     def get_absolute_url(self):
         return reverse('blog:post_detail',
                        args=[self.publish.year,
@@ -37,7 +38,23 @@ class Post(models.Model):
                              self.slug])
 
     class Meta:
-        ordering = ('-publish',)  #"-publish" descending order 
+        ordering = ('-publish',)  #"-publish" descending order
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    """Create a model class tha save comments"""
+    post = models.ForeignKey(Post, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)  #"-publish" descending order
+
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
