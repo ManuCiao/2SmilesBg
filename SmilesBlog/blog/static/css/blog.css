@@ -1,13 +1,14 @@
 body {
-    font-family: Helvetica, sans-serif;
-    line-height: 1.2;
+    font-family: 'Alegreya', Georgia, Helvetica, serif, sans-serif;
+    font-size: 1.25;
+    font-weight: 500;
     color: #878787;
     margin:0;
     padding:0;
 }
 
 header {
-	padding: 62px 0 62px 0;
+	padding: 3.5em 0 3.4em 0;
   background-color: orange;
   text-align: center;
 
@@ -16,43 +17,52 @@ header {
 header span {
 	color: white;
   border-bottom: 2px solid;
-	font-size: 1.625em;
-  line-height: 1.7;
+  margin-bottom: 1em;
+  line-height: 1em;
   letter-spacing: 1.3px;
-  padding: 6px 0  6px 0;
-  font-weight: lighter;
+  padding: 0 0 .6em 0;
+  font-weight: inherit;
 }
 
 a:link {
 	text-decoration: none;
 	color: #FFA949;
-	padding: 0 0 3px 0;
 	display: inline-block;
 }
 
+h1, h2, h3, h4 {
+  font-weight: inherit;
+}
+
 h1 {
-	font-size:72px;
-	font-weight: normal;
+	font-size: 2.441em;
   line-height: 1;
   text-shadow: 0 1px 0 rgba(0,0,0,.3);
   color: white;
+  margin: .5em 0 auto;
+  font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
 h2 {
-    font-size: 25px;
-    font-weight: bold;
-    margin:48px 0 0;
+    font-size: 1.953em;
+    line-height: 1;
+    margin:1.2em 0 .6em;
+}
+
+h3 {
+    font-size: 1.563em;
+    margin: 0 0 1.05em;
 }
 
 p {
   color: initial;
-  font-size: 16px;
-  line-height: 2.2;
+  font-size: 1.6;
+  margin: 1.6em 0 auto;
 }
 
 .step-links a:link{
   text-decoration: none;
-  font-size: 20px;
 	padding: 0 9px 3px 9px;
 	display: inline-block;
 }
@@ -60,7 +70,7 @@ p {
 #content {
     float:left;
     width:60%;
-    padding:0 0 0 30px;
+    padding: 0 0 0 1.6em;
     color: orange;
 }
 
@@ -75,10 +85,9 @@ p {
 p.date {
     color: #7d7b7b;
     font-family: georgia, serif;
-    font-size: 10px;
-    padding-left: 2px;
+    font-size: .625em;
     font-style: italic;
-    line-height: .1;
+    margin: .5em .1em auto;
 }
 
 /* pagination */
@@ -102,14 +111,14 @@ input, textarea {
     background:#ededed;
     border:0;
     padding:6px 10px;
-    font-size:12px;
+    font-size:.75em;
 }
 input[type=submit] {
     font-weight:bold;
-    background:#00abff;
+    background:#ffa500;
     color:#fff;
     padding:10px 20px;
-    font-size:14px;
+    font-size:.875em;
     text-transform:uppercase;
 }
 .errorlist {
@@ -128,7 +137,7 @@ input[type=submit] {
 }
 .comment .info {
     font-weight:bold;
-    font-size:12px;
+    font-size:.75em;
     color:#666;
 }
 
@@ -142,13 +151,13 @@ input[type=submit] {
 
 #main-footer a:link {
 	text-decoration: none;
-  font-size: 18px;
+  font-size: 1em;
 	color: #FFA949;
 	padding: 0 0 0 3px;
 }
 
 #main-footer #p-footer{
   color: initial;
-  font-size: 16px;
-  padding-top: 20px;
+  font-size: 1em;
+  padding: 1.05em 0 .7em 0;
 }
