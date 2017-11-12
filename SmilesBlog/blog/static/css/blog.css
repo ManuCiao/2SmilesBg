@@ -1,15 +1,13 @@
 body {
     font-family: Helvetica, sans-serif;
-    line-height: 1.5;
+    line-height: 1.2;
     color: #878787;
     margin:0;
     padding:0;
 }
 
 header {
-	padding-top: 120px;
-  padding-bottom: 90px;
-  margin-bottom: 50px;
+	padding: 62px 0 62px 0;
   background-color: orange;
   text-align: center;
 
@@ -18,40 +16,38 @@ header {
 header span {
 	color: white;
   border-bottom: 2px solid;
-	font-size: 26px;
+	font-size: 1.625em;
+  line-height: 1.7;
   letter-spacing: 1.3px;
-  line-height: 2;
-  padding-bottom: 10px;
+  padding: 6px 0  6px 0;
   font-weight: lighter;
 }
 
 a:link {
 	text-decoration: none;
-  font-size: 35px;
 	color: #FFA949;
-	padding: 0 9px 3px 9px;
+	padding: 0 0 3px 0;
 	display: inline-block;
 }
 
 h1 {
 	font-size:72px;
 	font-weight: normal;
-	margin-top: 24px;
   line-height: 1;
   text-shadow: 0 1px 0 rgba(0,0,0,.3);
   color: white;
 }
 
 h2 {
-    font-size: 30px;
-    font-weight:normal;
-    margin:30px 0 0;
+    font-size: 25px;
+    font-weight: bold;
+    margin:48px 0 0;
 }
 
 p {
   color: initial;
-  line-height: 1.6;
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 2.2;
 }
 
 .step-links a:link{
@@ -71,16 +67,18 @@ p {
 #sidebar {
     float:right;
     width:30%;
-    padding:10px;
-    background:#efefef;
+    padding: 0 10px 10px 10px;
+    background:#ffa5004d;
     height:100%;
 }
 
 p.date {
     color: #7d7b7b;
     font-family: georgia, serif;
-    font-size: 12px;
+    font-size: 10px;
+    padding-left: 2px;
     font-style: italic;
+    line-height: .1;
 }
 
 /* pagination */
@@ -137,14 +135,20 @@ input[type=submit] {
 #main-footer{
   clear: both;
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   border-bottom: solid 35px orange;
 }
 
 #main-footer a:link {
 	text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
 	color: #FFA949;
 	padding: 0 0 0 3px;
+}
+
+#main-footer #p-footer{
+  color: initial;
+  font-size: 16px;
+  padding-top: 20px;
 }
