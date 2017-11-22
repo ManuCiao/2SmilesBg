@@ -171,3 +171,38 @@ input[type=submit] {
 ul{
   padding-left: 20px;
 }
+
+
+/*Media Queries ---- */
+
+@@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+  header{
+    max-height: 380px;
+    padding: 50px 25px 0;
+  }
+
+  header span {
+    font-size: 1.3rem;
+    border: none;
+  }
+
+  h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+  }
+
+  #content,
+  #sidebar{
+    float:none;
+    width: 100%;
+    padding: 20px;
+    border-top: none;
+  }
+  .main-footer{
+    padding: 20px 0;
+  }
+}
