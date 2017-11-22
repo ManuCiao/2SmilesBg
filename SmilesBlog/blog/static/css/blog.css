@@ -27,7 +27,6 @@ header span {
 a:link {
 	text-decoration: none;
 	color: #FFA949;
-	display: inline-block;
 }
 
 h1, h2, h3, h4 {
@@ -53,6 +52,7 @@ h2 {
 h3 {
     font-size: 1.563em;
     margin: 1.1em 0 auto;
+    font-weight: 700;
 }
 
 p {
@@ -169,5 +169,5 @@ input[type=submit] {
 }
 
 ul{
-  padding-left: 20px; 
+  padding-left: 20px;
 }
