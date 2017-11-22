@@ -1,9 +1,12 @@
+from django.utils.safestring import mark_safe
 from django.db.models import Count
 from django import template
 
 register = template.Library()
 
 from ..models import Post
+
+import markdown
 
 @register.simple_tag  #Processes the data and returns a string - add (e.g. name='my_tag')
 def total_posts():
@@ -21,3 +24,10 @@ def get_most_commented_posts(count=5):
     return Post.published.annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
+
+
+#use markdown sintax in my blog posts and tene converrt the post contents to html
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))
+    
