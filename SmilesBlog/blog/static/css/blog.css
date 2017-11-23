@@ -110,7 +110,7 @@ a:active {
 
 #content {
     float:left;
-    width:60%;
+    width:70%;
     padding: 0 0 0 1.6em;
     color: orange;
 }
@@ -119,8 +119,12 @@ a:active {
     float:right;
     width:30%;
     padding: 0 10px 10px 10px;
-    background:#ffa5004d;
+    background: linear-gradient(to top left, #ffa949,transparent 50%);
     height:100%;
+}
+.t-border {
+  border-top: 2px solid #dfe2e6;
+  padding-bottom: 30px;
 }
 
 p.date {
