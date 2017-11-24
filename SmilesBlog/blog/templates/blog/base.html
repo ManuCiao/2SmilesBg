@@ -1,21 +1,105 @@
 {% load staticfiles %}
-<!DOCTYPE html>
+<!doctype html>
 {% load blog_tags %}
 {% load staticfiles %}
-<html>
+<html lang="en">
+
   <head>
     <meta charset="utf-8">
-    <title>{% block title %} {% endblock %}</title>
-    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Manuela Sabatino's Django blog">
+    <meta name="keywords" content="mnsabatino, manuela sabatino, manuciao, msblog, blog, django blog">
+    <meta name="author" content="Manuela Sabatino">
+    <link rel="icon" href="">
+    <title>{% block title %}MS Blog{% endblock %}</title>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "css/carousel.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "css/ie10-viewport-bug-workaround.css" %}" rel="stylesheet" media="screen">
+
+    <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="//basehold.it/32">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+    <!-- Font awesome Core CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/511631ef05b56b32372527eb9bf6738b378cdf50.css'/>
+
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- YouTubePopUp CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/f1ad6b3712ee0100b27b56e6285b7c57f7eb58ab/css/youtubepopup.css'/>
+
+		<!-- magnific-popup CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/f7c33166984ffaa7725eb2f045126d33c71e651b/css/magnific-popup.css'/>
+
+		<!-- owl carousel CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/fd06a7dbf6fcde7e689595d4b6f0a76ee00250ec.css'/>
+
+		<!-- Custom style CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/1ab8a2813b828b5ed3e1d89dadd9fa20a0a8c1fb/css/style.css'/>
+
+		<!-- responsive CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/47ee5ef18eafc07d50cb8aae076a35d5c6c6d6fd/css/responsive.css'/>
+
+		<!--[if lt IE 9]-->
+		<script src='http://d33wubrfki0l68.cloudfront.net/js/1f551ad794ba616cbdeff4c3af350b88a85a559e/js/html5shiv.min.js'></script>
+		<!--[endif]-->
+
   </head>
+
   <body>
-    <header id="top" class="main-header">
-      <span class="title">Journey to get the life I want..</span>
-      <h1>Manuela's Blog</h1>
+    <!-- ====== Navigation ======  -->
+    <nav class="navbar fixed-top local-nav navbar-custom tt-default-nav">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <!-- logo -->
+		      <a class="navbar-brand" href="#">MS Blog</a>
+		    </div>
+
+		    <!-- Collect the nav links, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+			  <!-- links -->
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#home" class="active">Home</a></li>
+		        <li><a href="#about">About</a></li>
+		        <li><a href="#blog">Blog</a></li>
+		        <li><a href="#contact">Contact</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+		</nav>
+		<!-- ====== End Navgition ======  -->
+
+    <!-- ====== Header ======  -->
+    <header id="top" class="main-header header">
+        <div class="header-overlay">
+				<!-- header content -->
+				<div class="caption v-middle text-center">
+					<h6>Journey to get the life I want..</h6>
+					<h1>Manuela's Blog</h1>
+					<button class="button btn-bord-light">WHO AM I?</button>
+				</div>
+				<div class="button-scroll" data-scrollTo="about"><span></span></div>
+			</div>
     </header>
+    <!-- ====== End Header ======  -->
+
+    <!-- Marketing messaging and featurettes
+   ================================================== -->
+   <!-- Wrap the rest of the page in another container to center all the content. -->
+   <div class="container">
 
       <div id="content">
         {% block content %}
@@ -40,11 +124,120 @@
           </ul>
       </div>
 
+  </div>
 
-    <footer id="main-footer">
-      <p id="p-footer">All rights reserved to <a href="#">ManuCiao</a>.</p>
-      <a href="#top">Back to top &raquo;</a>
-    </footer>
+    <!--====== Footer ======-->
+		<footer id="main-footer">
+
+			<!-- main footer -->
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+
+						<!-- item about -->
+						<div class="col-sm-4">
+							<div class="item-about">
+								<h4>Django</h4>
+								<p>Lorem ipsum dolor sit amet, consec tetur elit. In maximus ligula semper.Lorem ipsum dolor sit amet adipiscing conse ctetur adipi scing eli elit.</p>
+								<div class="social-icon">
+									<span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+									<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+									<span><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+									<span><i class="fa fa-github" aria-hidden="true"></i></span>
+								</div>
+							</div>
+						</div>
+
+						<!-- twity -->
+						<div class="col-sm-4">
+							<div class="twity">
+								<h6>LATEST NEWS</h6>
+								<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+								<p>Lorem ipsum dolor sit amet, consec tetur elit. In maximus ligula semper.Lorem ipsum dolor sit . http://envato/hisham007</p>
+							</div>
+
+							<div class="twity">
+								<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+								<p>Lorem ipsum dolor sit amet, consec tetur elit.  #webdesign</p>
+							</div>
+						</div>
+
+						<!-- subscribe -->
+						<div class="col-sm-4">
+							<div class="item">
+								<h6>GET IN TOUCH</h6>
+								<div class="sub-form">
+									<p>Subscribe To Get Latest News & Updates</p>
+									<input type="text" name="email" placeholder="Your Email">
+									<div class="btn-sub">
+										<button>Subscribe</button>
+									</div>
+								</div>
+                <br>
+								<div class="links">
+									<span>Home |</span><span>About |</span><span>Contact</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- sub footer -->
+			<div class="sub-footer text-center">
+				<div class="container">
+          <p>&copy; 2017 All rights reserved to  <a href="#">ManuCiao</a>&nbsp; |<span><a href="#top">Back to top</a></span></p>
+        </div>
+			</div>
+		</footer>
+		<!--====== End Footer ======-->
+
+
+    <!--====== js ======-->
+  		<!-- jQuery -->
+  		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  		<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+  	  	<!-- bootstrap -->
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  		<!-- singlePageNav -->
+  		<script src='http://d33wubrfki0l68.cloudfront.net/js/ebce443b62587282a6a7a525fd45a44cd05f49ef/layout-1/js/jquery.singlepagenav.min.js'></script>
+
+  		<!-- YouTubePopUp -->
+  		<script src='http://d33wubrfki0l68.cloudfront.net/js/80759bd6c49ccdfae671439cf5a073d622e9f68c/js/youtubepopup.jquery.js'></script>
+
+  		<!-- magnific-popup -->
+  		<script src='http://d33wubrfki0l68.cloudfront.net/js/fc7275f61682fa1ea733c2987b43c46eda377256/js/jquery.magnific-popup.min.js'></script>
+
+  		<!-- owl carousel -->
+  		<script src='http://d33wubrfki0l68.cloudfront.net/js/bb58fb45196bfdfd9264552de221742cf7d4b75a/js/owl.carousel.min.js'></script>
+
+  		<!-- stellar js -->
+  		<script src='http://d33wubrfki0l68.cloudfront.net/js/8fdb0d77da9a6b77397f438141d0af686517171b/js/jquery.stellar.min.js'></script>
+
+  		<!-- jquery.waypoints.min js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/9548e34f1adc97a3d73dfafda21944b1be8da49f/jquery.waypoints.min.js'></script>
+
+    	<!-- jquery.counterup.min js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/e2e7ccf580b703d43aee6299cafbe02767d6f36b/js/jquery.counterup.min.js'></script>
+
+	    <!-- typed js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/c99c3e5fb6c9a4c1d65cb4fb2590afc1ce86679c/typed.js'></script>
+
+    	<!-- isotope.pkgd.min js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/5ffcda38920cf4fbcff71182c20641f2058aaa11/js/isotope.pkgd.min.js'></script>
+
+    	<!-- animated.headline js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/ead063eb9e16077f77444fcdeb7ff0cb00da2279/js/type-headline.js'></script>
+
+    	<!-- validator js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/8166dcc97a4c45dd4f117a8e9134a6b9ad1ad64a/js/validator.js'></script>
+
+    	<!-- custom js -->
+    	<script src='http://d33wubrfki0l68.cloudfront.net/js/cc5e4613fb169a4ee406a71e6218bac9ada831de/js/custom.js'></script>
+
 
   </body>
 </html>

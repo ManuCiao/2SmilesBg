@@ -189,9 +189,6 @@ input[type=submit] {
 #main-footer{
   clear: both;
   text-align: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  border-bottom: solid 35px orange;
 }
 
 #main-footer a:link {
