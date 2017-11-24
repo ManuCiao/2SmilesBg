@@ -13,3 +13,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'email', 'body')
+
+class SearchForm(forms.Form):
+    """Create a custom view to allow users to search posts"""
+    query = forms.CharField()
