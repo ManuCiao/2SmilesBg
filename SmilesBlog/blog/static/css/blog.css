@@ -99,6 +99,10 @@ a:hover {
   font-size: .9em;
 }
 
+.nav-text{
+  font-weight: 500;
+}
+
 .h2-tag {
   color: rgb(255, 169, 73);
   margin: -2em 0 1em 0;
@@ -161,7 +165,16 @@ p.date {
 
 .icon {
   font-size: 1.3em;
+  padding: 0 5px;
 }
+
+.icon-post {
+  font-size: 1.3em;
+  padding: 0 5px;
+  box-shadow: 2px 2px 2px 1px orange;
+  margin: .87em .2em;
+}
+
 
 /* pagination */
 .pagination {
@@ -171,6 +184,7 @@ p.date {
 }
 
 /* forms */
+
 label {
     float:left;
     clear:both;
@@ -178,21 +192,31 @@ label {
     margin-bottom:4px;
 }
 input, textarea {
+    background-color: #f2f2f2;
+    width: 100%;
     clear:both;
     float:left;
     margin:0 0 10px;
-    background:#ededed;
-    border:0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
     padding:6px 10px;
     font-size:.75em;
 }
 input[type=submit] {
+    border-radius: 7px;
     font-weight:bold;
     background:#ffa500;
     color:#fff;
     padding:10px 20px;
     font-size:.875em;
+    cursor: pointer;
     text-transform:uppercase;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(255, 169, 73, .7);
+    color: #000;
 }
 .errorlist {
     color:#cc0033;
