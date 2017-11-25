@@ -7,10 +7,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Create a virtual enviroment and activate it using the following code:
+```
+virtualenv --python=python3 myvenv
+
+source myvenv/bin/activate
+```
+Install the libraries from the requirements.txt using the following code:
 
 ```
-Give examples
+pip install -r requirements.txt
 ```
 
 ### Installing
