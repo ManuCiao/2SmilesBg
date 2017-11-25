@@ -1,10 +1,8 @@
 {% load staticfiles %}
 
-<!doctype html>
-
 {% load blog_tags %}
 
-{% load staticfiles %}
+<!doctype html>
 
 <html lang="en">
 
@@ -69,7 +67,7 @@
 		        <span class="icon-bar"></span>
 		      </button>
 		      <!-- logo -->
-		      <a class="navbar-brand" href="#">MS Blog</a>
+		      <a class="navbar-brand" href="{% url "blog:post_list" %}">MS Blog</a>
 		    </div>
 
 		    <!-- Collect the nav links, and other content for toggling -->
@@ -77,10 +75,9 @@
 
 			  <!-- links -->
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#home" class="active">Home</a></li>
-		        <li><a href="#about">About</a></li>
-		        <li><a href="#blog">Blog</a></li>
-		        <li><a href="#contact">Contact</a></li>
+		        <li><a href="{% url "blog:post_list" %}">Home</a></li>
+		        <li><a href="{% url "blog:about" %}">About</a></li>
+		        <li><a href="{% url "blog:contact" %}">Contact</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container -->
@@ -88,15 +85,15 @@
 		<!-- ====== End Navgition ======  -->
 
     <!-- ====== Header ======  -->
-    <header id="top" class="main-header header">
+    <header id="home" class="main-header header">
         <div class="header-overlay">
 				<!-- header content -->
 				<div class="caption v-middle text-center">
 					<h6>Journey to get the life I want..</h6>
 					<h1>Manuela's Blog</h1>
-					<button class="button btn-bord-light">WHO AM I?</button>
+					<button class="button btn-bord-light"><a href="{% url "blog:about" %}">WHO AM I?</a></button>
 				</div>
-				<div class="button-scroll" data-scrollTo="about"><span></span></div>
+				<div class="button-scroll" data-scrollTo="#home"><span></span></div>
 			</div>
     </header>
     <!-- ====== End Header ======  -->
@@ -182,7 +179,7 @@
 			<!-- sub footer -->
 			<div class="sub-footer text-center">
 				<div class="container">
-          <p class="pull-right"><a href="#top">Back to top</a></p>
+          <p class="pull-right"><a href="#home">Back to top</a></p>
           <p>&copy; 2017 All rights reserved to  <a href="https://www.linkedin.com/in/mnsabatino/">ManuCiao</a></p>
         </div>
 			</div>

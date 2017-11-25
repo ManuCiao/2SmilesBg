@@ -34,7 +34,7 @@ h3 {
 
 p {
   color: initial;
-  font-size: 1.8;
+  font-size: 1.4em;
   margin: 1.6em 0 auto;
 }
 
@@ -55,15 +55,15 @@ ol{
 a:link {
   color: rgb(255, 169, 73);
   text-decoration: none;
+  font-weight: 600;
+
 }
 
 a:hover {
   color: rgba(255, 169, 73, .4);
 }
 
-a:active {
-  color: lightcoral;
-}
+
 
 /* Main Styles --------------------- */
 
@@ -90,9 +90,7 @@ a:active {
 }
 
 .tags  {
-  color: initial;
   font-size: .9em;
-  margin: -.8em 0 0 0;
 }
 
 .step-links a:link{
@@ -104,12 +102,13 @@ a:active {
 .container-t{
   width: 1300px;
   margin: 0 auto;
+  font-size: 17px;
 }
 
 #content,
 #sidebar{
   margin-top: 60px;
-
+  margin-bottom: 30px;
 }
 
 #content {
@@ -134,9 +133,9 @@ a:active {
 p.date {
     color: #7d7b7b;
     font-family: georgia, serif;
-    font-size: .625em;
+    font-size: .8em;
     font-style: italic;
-    margin: .5em .1em auto;
+    margin: 1em .1em;
 }
 
 /* pagination */
