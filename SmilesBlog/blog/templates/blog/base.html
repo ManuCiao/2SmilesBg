@@ -15,13 +15,9 @@
     <meta name="author" content="Manuela Sabatino">
     <link rel="icon" href="">
     <title>{% block title %}MS Blog{% endblock %}</title>
-    <link href="{% static "css/blog.css" %}" rel="stylesheet" media="screen">
-    <link href="{% static "css/carousel.css" %}" rel="stylesheet" media="screen">
-    <link href="{% static "css/ie10-viewport-bug-workaround.css" %}" rel="stylesheet" media="screen">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
-    <!-- Google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
@@ -32,24 +28,9 @@
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- YouTubePopUp CSS -->
-		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/f1ad6b3712ee0100b27b56e6285b7c57f7eb58ab/css/youtubepopup.css'/>
-
-		<!-- magnific-popup CSS -->
-		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/f7c33166984ffaa7725eb2f045126d33c71e651b/css/magnific-popup.css'/>
-
-		<!-- owl carousel CSS -->
-		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/fd06a7dbf6fcde7e689595d4b6f0a76ee00250ec.css'/>
-
 		<!-- Custom style CSS -->
 		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/1ab8a2813b828b5ed3e1d89dadd9fa20a0a8c1fb/css/style.css'/>
-
-		<!-- responsive CSS -->
-		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/47ee5ef18eafc07d50cb8aae076a35d5c6c6d6fd/css/responsive.css'/>
-
-		<!--[if lt IE 9]-->
-		<script src='http://d33wubrfki0l68.cloudfront.net/js/1f551ad794ba616cbdeff4c3af350b88a85a559e/js/html5shiv.min.js'></script>
-		<!--[endif]-->
+    <link href="{% static "css/blog.css" %}" rel="stylesheet" media="screen">
 
   </head>
 
@@ -89,7 +70,7 @@
         <div class="header-overlay">
 				<!-- header content -->
 				<div class="caption v-middle text-center">
-					<h6>Journey to get the life I want..</h6>
+					<h6>The Journey to get the life I want..</h6>
 					<h1>Manuela's Blog</h1>
 					<button class="button btn-bord-light"><a href="{% url "blog:about" %}">WHO AM I?</a></button>
 				</div>
@@ -103,73 +84,64 @@
    <!-- Wrap the rest of the page in another container to center all the content. -->
      <div class="container-t">
 
-      <div id="content">
-        {% block content %}
-        {% endblock %}
-      </div>
 
-      <div id="sidebar">
-        <h2>MS Blog</h2>
-          <p>This is my blog. I have written {% total_posts %} posts so far.</p>
-          <p><a href="{% url "blog:post_feed" %}">Subscribe to my RSS feed</a></p>
-          <h3>Latest posts</h3>
-          {% show_latest_posts %}
+          <div id="content">
+            {% block content %}
+            {% endblock %}
+          </div>
 
-          <h3>Most commented posts</h3>
-          {% get_most_commented_posts as most_commented_posts %}
-          <ul>
-            {% for post in most_commented_posts %}
-            <li>
-              <a href="{{ post.get_absolute_url }}"> {{ post.title }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-      </div>
+          <div id="sidebar">
+
+            <h2>MS Blog</h2>
+              <p>This is my blog. I have written {% total_posts %} posts so far.</p>
+              <p><a href="{% url "blog:post_feed" %}">Subscribe to my RSS feed</a></p>
+              <h3>Latest posts</h3>
+              {% show_latest_posts %}
+
+              <h3>Most commented posts</h3>
+              {% get_most_commented_posts as most_commented_posts %}
+              <ul>
+                {% for post in most_commented_posts %}
+                <li>
+                  <a href="{{ post.get_absolute_url }}"> {{ post.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+
+          </div>
+
 
     </div>
+
     <!--====== Footer ======-->
   	<footer id="main-footer">
 
 			<!-- main footer -->
-			<div class="main-footer">
+			<div class="text-footer main-footer">
 				<div class="container">
 					<div class="row">
 
 						<!-- item about -->
-						<div class="col-sm-7">
-							<div class="item-about">
-								<h4>MS Blog</h4>
-								<p>How everything started ...
-                <span class="text-muted">from taking action and decided to take control of my own life..</span></p>
-								<div class="social-icon">
-									<span><a href="https://www.facebook.com/manuciao8">
-                    <i class="fa fa-facebook" aria-hidden="true"></i></a></span>
-									<span><a href="https://twitter.com/MnlSabatino">
-                    <i class="fa fa-twitter" aria-hidden="true"></i></a></span>
-									<span><a href="https://www.linkedin.com/in/mnsabatino/">
-                    <i class="fa fa-linkedin" aria-hidden="true"></a></i></span>
-									<span><a href="https://github.com/ManuCiao">
-                    <i class="fa fa-github" aria-hidden="true"></a></i></span>
-								</div>
+						<div class="item-about text-center">
+							<h4>MS Blog</h4>
+							<p>How everything started ...
+              <span class="text-muted">from taking action and decided to take control of my own life..</span></p>
+							<div class="icon social-icon">
+								<span><a href="https://www.facebook.com/manuciao8">
+                  <i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+								<span><a href="https://twitter.com/MnlSabatino">
+                  <i class="fa fa-twitter" aria-hidden="true"></i></a></span>
+								<span><a href="https://www.linkedin.com/in/mnsabatino/">
+                  <i class="fa fa-linkedin" aria-hidden="true"></a></i></span>
+								<span><a href="https://github.com/ManuCiao">
+                  <i class="fa fa-github" aria-hidden="true"></a></i></span>
 							</div>
-						</div>
-
-						<!-- subscribe -->
-						<div class="col-sm-4">
-							<div class="item">
-								<h6>GET IN TOUCH</h6>
-								<div class="sub-form">
-									<p>Subscribe To Get Latest News & Updates</p>
-									<input type="text" name="email" placeholder="Your Email">
-									<div class="btn-sub">
-										<button>Subscribe</button>
-									</div>
-								</div>
-                <br>
-								<div class="links">
-									<span>Home |</span><span>About |</span><span>Contact</span>
-								</div>
-							</div>
+              <br>
+              <div>
+                <span><a href="{% url "blog:post_list" %}">Home </a></span><span>&nbsp;|</span>
+                <span><a href="{% url "blog:about" %}">About </a></span><span>&nbsp;|</span>
+                <span><a href="{% url "blog:contact" %}">Contact</a></span>
+              </div>
 						</div>
 
 					</div>
@@ -177,10 +149,10 @@
 			</div>
 
 			<!-- sub footer -->
-			<div class="sub-footer text-center">
+			<div class="text-footer sub-footer">
 				<div class="container">
           <p class="pull-right"><a href="#home">Back to top</a></p>
-          <p>&copy; 2017 All rights reserved to  <a href="https://www.linkedin.com/in/mnsabatino/">ManuCiao</a></p>
+          <p class="pull-left">&copy; 2017 All rights reserved to  <a href="https://www.linkedin.com/in/mnsabatino/">ManuCiao</a></p>
         </div>
 			</div>
 		</footer>

@@ -6,13 +6,13 @@
 
 
 body {
-    font: 1em/1.5 'Alegreya', Georgia, Helvetica, serif, sans-serif;
+    font: 1em/1.5 'Dosis', 'Alegreya', Georgia, Helvetica, serif, sans-serif;
     color: #878787;
     margin:0;
 }
 
 h1 {
-  font-size: 5.625rem; /* 90px/16px  */
+  font-size: 7rem;
   color: rgba(255, 255, 255, 1);
   font-weight: normal;
   line-height: 1.3;
@@ -21,21 +21,21 @@ h1 {
 }
 
 h2 {
-    font-size: 1.953em;
+    font-size: 2.1em;
     line-height: 1;
-    margin:1.2em 0 .6em;
+    margin:.5em 0 .6em;
 }
 
 h3 {
-    font-size: 1.563em;
+    font-size: 1.7em;
     margin: 1.1em 0 auto;
     font-weight: 700;
 }
 
 p {
   color: initial;
-  font-size: 1.4em;
-  margin: 1.6em 0 auto;
+  font-size: 1.1em;
+  margin: 1.6em 0;
 }
 
 img {
@@ -48,6 +48,12 @@ ul,
 ol{
   padding-left: 30px;
   line-height: 2em;
+  margin: 15px 0;
+}
+
+li {
+  list-style-type: square !important;
+  padding-left: 15px;
 }
 
 /* Pseudo-classes ------------------ */
@@ -93,6 +99,11 @@ a:hover {
   font-size: .9em;
 }
 
+.h2-tag {
+  color: rgb(255, 169, 73);
+  margin: -2em 0 1em 0;
+}
+
 .step-links a:link{
   text-decoration: none;
 	padding: 0 9px 3px 9px;
@@ -100,15 +111,21 @@ a:hover {
 }
 
 .container-t{
+  color: rgb(255, 169, 73);
   width: 1300px;
   margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
   font-size: 17px;
+}
+
+.featurette-image{
+  margin: 0 auto;
 }
 
 #content,
 #sidebar{
-  margin-top: 60px;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 #content {
@@ -136,6 +153,14 @@ p.date {
     font-size: .8em;
     font-style: italic;
     margin: 1em .1em;
+}
+
+.text-footer{
+  font-size: 1.5em;
+}
+
+.icon {
+  font-size: 1.3em;
 }
 
 /* pagination */

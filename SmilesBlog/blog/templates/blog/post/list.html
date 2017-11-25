@@ -4,41 +4,43 @@
 
 {% block title %}MS Blog{% endblock %}
 
-{% block content %}
-    {% if tag %}
-      <h2 class="featurette-heading">Posts tagged with "{{ tag.name }}"</h2>
-    {% endif %}
-    {% for post in posts %}
 
-    <div class="row featurette">
+  {% block content %}
+  
+  {% if tag %}
+  <h2 class="h2-tag">Posts tagged with "{{ tag.name }}"</h2>
+  {% endif %}
 
-      <div class="col-lg-7">
-        <h2 class="featurette-heading">{{ post.title }}</h2>
-          <p class="tags">
-            Tags:
-            {% for tag in post.tags.all %}
-              <a href="{% url "blog:post_list_by_tag" tag.slug %}">
-                {{ tag.name }}
-              </a>
-              {% if not forloop.last %}, {% endif %}
-            {% endfor %}
-          </p>
-          <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-          {{ post.body|markdown|truncatewords_html:8 }}
-          <br>
-          <a class="button btn-bord-dark" href="{{ post.get_absolute_url }}" role="button">Read More &raquo;</a>
+      {% for post in posts %}
+
+      <div class="row featurette">
+
+        <div class="col-lg-7">
+          <h2 class="featurette-heading">{{ post.title }}</h2>
+            <p class="tags">
+              Tags:
+              {% for tag in post.tags.all %}
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                  {{ tag.name }}
+                </a>
+                {% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </p>
+            <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+            {{ post.body|markdown|truncatewords_html:8 }}
+            <br>
+            <a class="button btn-bord-dark" href="{{ post.get_absolute_url }}" role="button">Read More &raquo;</a>
+        </div>
+
+        <div class="col-lg-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE1ZmYyNzI3OTY0IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmZjI3Mjc5NjQiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg3IiB5PSIyNjEuMSI+NTAweDUwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="Generic placeholder image">
+        </div>
+
       </div>
 
-      <div class="col-lg-5">
-        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzUwMHg1MDAvYXV0bwpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE1ZmYyNzI3OTY0IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmZjI3Mjc5NjQiPjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRUVFRUVFIi8+PGc+PHRleHQgeD0iMTg3IiB5PSIyNjEuMSI+NTAweDUwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="Generic placeholder image">
-      </div>
+      <hr class="featurette-divider">
 
-    </div>
+      {% endfor %}
 
-    <hr class="featurette-divider">
-
-    {% endfor %}
-
-    {% include "pagination.html" with page=posts %}
-
-{% endblock %}
+      {% include "pagination.html" with page=posts %}
+  {% endblock %}
