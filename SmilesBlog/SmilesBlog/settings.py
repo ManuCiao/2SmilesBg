@@ -27,7 +27,7 @@ SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
 # change it to FALSE when deploy the  app in production otherwise data are exposed.
 
 
-DEBUG = False  #if it is not working turning it in True
+DEBUG = True  #if it is not working turning it in True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com'] # add homain/host once you will deploy it.
 
@@ -132,6 +132,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 # Local SMTP server or defie the configuration of an external SMTP server by adding:
