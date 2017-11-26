@@ -181,6 +181,8 @@ p.date {
     margin:40px 0;
     font-weight:bold;
     color: black;
+    text-align: center;
+    display: block;
 }
 
 /* forms */
