@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,9 +25,11 @@ SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # change it to FALSE when deploy the  app in production otherwise data are exposed.
-DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'manuciao.pythonanywhere.com']  # add homain/host once you will deploy it.
+
+DEBUG = False  #if it is not working turning it in True
+
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com'] # add homain/host once you will deploy it.
 
 SITE_ID=1
 # Application definition
@@ -104,6 +107,10 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Internationalization
