@@ -1,1 +1,1 @@
-web: gunicorn SmilesBlog smilesblog.wsgi --log-file -
+web: gunicorn --pythonpath SmilesBlog smilesblog.deploy --log-file -
