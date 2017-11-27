@@ -1,1 +1,1 @@
-web: gunicorn SmilesBlog.wsgi --log-file -
+web: gunicorn SmilesBlog smilesblog.wsgi --log-file -
