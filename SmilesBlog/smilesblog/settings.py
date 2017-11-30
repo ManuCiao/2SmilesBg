@@ -14,6 +14,16 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import dj_database_url
 
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the {} env variable".format(var_name)
+        if DEBUG:
+            warning.warn(error_msg)
+        else:
+            raise ImproperlyConfigured(error_msg)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
