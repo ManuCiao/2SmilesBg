@@ -83,6 +83,8 @@ a:hover {
 }
 
 .thumbnail{
+  margin: 1.5em 0;
+  padding-bottom: 1em;
   width: 20em;
   height: 20em;
   background-size: cover;
@@ -294,9 +296,17 @@ input[type=submit]:hover {
     width: 100%;
   }
 
+  .thumbnail{
+    margin: 1.2em 0;
+  }
+
 }
 
 @media (max-width: 768px) {
+
+  .thumbnail{
+    margin: 1.2em 0;
+  }
 
   .container-t{
     width: 100%;
