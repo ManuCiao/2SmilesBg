@@ -20,7 +20,7 @@ def get_env_variable(var_name):
     except KeyError:
         error_msg = "Set the {} env variable".format(var_name)
         if DEBUG:
-            warning.warn(error_msg)
+            warnings.warn(error_msg)
         else:
             raise ImproperlyConfigured(error_msg)
 
