@@ -138,6 +138,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+# Media root for images uploaded on the posts
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Local SMTP server or defie the configuration of an external SMTP server by adding:
 EMAIL_HOST = 'smtp.gmail.com'

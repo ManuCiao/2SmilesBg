@@ -82,6 +82,12 @@ a:hover {
   background-size: cover;
 }
 
+.thumbnail{
+  width: 20em;
+  height: 20em;
+  background-size: cover;
+}
+
 .title {
   color: white;
   font-size: 1.625rem; /* 26px/16px */
@@ -327,6 +333,10 @@ input[type=submit]:hover {
 
   p{
     font-size: 1.5rem;
+  }
+
+  pre, ul{
+    text-align: left;
   }
 
   .featurette-image{
