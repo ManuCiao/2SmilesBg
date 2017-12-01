@@ -56,6 +56,26 @@ li {
   padding-left: 15px;
 }
 
+details {
+  color: #000 !important;
+}
+summary {
+  display: block;
+}
+
+  summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: '\25B6';
+  padding-right: 0.5em;
+}
+
+details[open] > summary::before {
+  content: '\25BC';
+}
+
 /* Pseudo-classes ------------------ */
 
 a:link {
