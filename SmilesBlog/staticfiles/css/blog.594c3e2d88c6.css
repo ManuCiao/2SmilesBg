@@ -1,0 +1,379 @@
+/* Base Styles -------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+    font: 1em/1.5 'Dosis', 'Alegreya', Georgia, Helvetica, serif, sans-serif;
+    color: #878787;
+    margin:0;
+}
+
+h1 {
+  font-size: 7rem;
+  color: rgba(255, 255, 255, 1);
+  font-weight: normal;
+  line-height: 1.3;
+  text-shadow: 0 1px 1px rgba(0,0,0,.8);
+  margin: 12px 0 0;
+}
+
+h2 {
+    font-size: 2.1em;
+    line-height: 1;
+    margin:.5em 0 .6em;
+}
+
+h3 {
+    font-size: 1.7em;
+    margin: 1.1em 0 auto;
+    font-weight: 700;
+}
+
+p {
+  color: initial;
+  font-size: 1.1em;
+  margin: 1.6em 0;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+ul,
+ol{
+  padding-left: 30px;
+  line-height: 2em;
+  margin: 15px 0;
+}
+
+li {
+  list-style-type: square !important;
+  padding-left: 15px;
+}
+
+/* Pseudo-classes ------------------ */
+
+a:link {
+  color: rgb(255, 169, 73);
+  text-decoration: none;
+  font-weight: 600;
+
+}
+
+a:hover {
+  color: rgba(255, 169, 73, .4);
+}
+
+
+
+/* Main Styles --------------------- */
+
+.main-header {
+  padding-top: 170px;
+  height: 500px;
+  background: linear-gradient(#ffa949, transparent 90%),
+              linear-gradient(0deg, #fff, transparent),
+              #ffa949 url("../img/hot_air_balloon_wallpapers.3cb725bf1446.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.thumbnail{
+  margin: 1.5em 0;
+  padding-bottom: 1em;
+  width: 20em;
+  height: 20em;
+  background-size: cover;
+}
+
+.title {
+  color: white;
+  font-size: 1.625rem; /* 26px/16px */
+  letter-spacing: .065em;
+  font-weight: 200;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+.main-header,
+.main-footer {
+  text-align: center;
+}
+
+.tags  {
+  font-size: .9em;
+}
+
+.nav-text{
+  font-weight: 500;
+}
+
+.h2-tag {
+  color: rgb(255, 169, 73);
+  margin: -2em 0 1em 0;
+}
+
+.step-links a:link{
+  text-decoration: none;
+	padding: 0 9px 3px 9px;
+	display: inline-block;
+}
+
+.container-t{
+  color: rgb(255, 169, 73);
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 17px;
+}
+
+.featurette-image{
+  margin: 0 auto;
+  padding:10px 0;
+}
+
+#content,
+#sidebar{
+  margin: 30px 0;
+}
+
+#content {
+    float:left;
+    width:70%;
+    padding: 0 0 0 1.6em;
+    color: orange;
+    padding-right: 35px;
+}
+
+#sidebar {
+    float:right;
+    width:30%;
+    padding: 0 10px 10px 10px;
+    height:100%;
+}
+.t-border {
+  border-top: 2px solid #dfe2e6;
+  padding-bottom: 30px;
+}
+
+p.date {
+    color: #7d7b7b;
+    font-family: georgia, serif;
+    font-size: .8em;
+    font-style: italic;
+    margin: 1em .1em;
+}
+
+.text-footer{
+  font-size: 1.5em;
+}
+
+.icon {
+  font-size: 1.3em;
+  padding: 0 5px;
+}
+
+.icon-post {
+  font-size: 1.3em;
+  padding: 0 5px;
+  box-shadow: 2px 2px 2px 1px orange;
+  margin: .87em .2em;
+}
+
+
+/* pagination */
+.pagination {
+    margin:40px 0;
+    font-weight:bold;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+/* forms */
+
+label {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+input, textarea {
+    background-color: #f2f2f2;
+    width: 100%;
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding:6px 10px;
+    font-size:.75em;
+}
+input[type=submit] {
+    border-radius: 7px;
+    font-weight:bold;
+    background:#ffa500;
+    color:#fff;
+    padding:10px 20px;
+    font-size:.875em;
+    cursor: pointer;
+    text-transform:uppercase;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(255, 169, 73, .7);
+    color: #000;
+}
+.errorlist {
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px;
+}
+
+/* comments */
+.comment {
+    padding:10px;
+}
+.comment:nth-child(even) {
+    background:#efefef;
+}
+.comment .info {
+    font-weight:bold;
+    font-size:.75em;
+    color:#666;
+}
+
+#main-footer{
+  clear: both;
+  text-align: center;
+}
+
+#main-footer a:link {
+	text-decoration: none;
+  font-size: 1em;
+	color: #FFA949;
+	padding: 0 0 0 3px;
+}
+
+#main-footer #p-footer{
+  color: initial;
+  font-size: 1em;
+  padding: 1.05em 0 .7em 0;
+}
+
+
+
+/*Media Queries ---- */
+
+@@media (max-width: 1024px) {
+  #content,
+  #sidebar{
+    width: 90%;
+  }
+
+  .featurette-image{
+    padding: 10% 12%;
+    margin: 50px 0 20px;
+  }
+
+  .container-t{
+    width: 90%;
+    text-align: center;
+  }
+
+  .back{
+    display: none !important;
+  }
+
+  .main-footer{
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .thumbnail{
+    margin: 1.2em 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .thumbnail{
+    margin: 1.2em 0;
+  }
+
+  .container-t{
+    width: 100%;
+    text-align: center;
+  }
+
+  header{
+    max-height: 380px;
+    padding: 50px 25px 0;
+  }
+
+  header span {
+    font-size: 1.3rem;
+    border: none;
+  }
+
+  .button-scroll{
+    display: none;
+  }
+
+  h1 {
+    font-size: 5rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  h2{
+    font-size: 3rem;
+  }
+
+  h3{
+    font-size: 2rem;
+  }
+
+  p{
+    font-size: 1.5rem;
+  }
+
+  pre, ul{
+    text-align: left;
+  }
+
+  .featurette-image{
+    margin: 10px 2px;
+  }
+
+  .back{
+    float: none !important;
+  }
+
+  #content,
+  #sidebar{
+    width: 100%;
+  }
+
+  .text-footer{
+    padding-top: 30px !important;
+    padding-bottom: 0px !important;
+  }
+  .item-about,
+  .main-footer{
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .pull-right {
+    float: none !important;
+  }
+
+}
