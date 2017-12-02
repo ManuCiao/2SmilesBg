@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import config
 import dj_database_url
 
 def get_env_variable(var_name):
@@ -31,7 +32,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
+SECRET_KEY = config.SECRET_KEY
+GEOPOSITION_GOOGLE_MAPS_API_KEY = config.GEOPOSITION_GOOGLE_MAPS_API_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # change it to FALSE when deploy the  app in production otherwise data are exposed.
@@ -56,6 +58,7 @@ INSTALLED_APPS = (
     'blog',
     'taggit',
     'haystack',
+    "geoposition",
 )
 
 HAYSTACK_CONNECTIONS = {

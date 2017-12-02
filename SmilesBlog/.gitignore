@@ -1,6 +1,0 @@
-*.pyc
-db.sqlite3
-py3_env
-__pycache__
-local_settings.py
-psql.history
