@@ -113,7 +113,7 @@ a:hover {
   height: 500px;
   background: linear-gradient(#ffa949, transparent 90%),
               linear-gradient(0deg, #fff, transparent),
-              #ffa949 url('../img/hot_air_balloon_wallpapers.jpg') no-repeat center;
+              #ffa949 url("../img/hot_air_balloon_wallpapers.3cb725bf1446.jpg") no-repeat center;
   background-size: cover;
 }
 
