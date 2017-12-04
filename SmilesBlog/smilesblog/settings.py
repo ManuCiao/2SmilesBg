@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from .config import SECRET_KEY
+# from .config import SECRET_KEY
 import dj_database_url
 
 def get_env_variable(var_name):
@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
