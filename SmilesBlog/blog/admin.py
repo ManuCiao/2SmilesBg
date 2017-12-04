@@ -11,6 +11,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['status', 'publish']
 admin.site.register(Post, PostAdmin)
 
+
 class CommentAdmin(admin.ModelAdmin):
     """Add the comment model to the Admin site to manage commets via interface"""
     list_display = ('name', 'email', 'post', 'created', 'active')

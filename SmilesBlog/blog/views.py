@@ -40,6 +40,7 @@ def about(request):
 def contact(request):
     return render(request, 'blog/contact.html')
 
+
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'

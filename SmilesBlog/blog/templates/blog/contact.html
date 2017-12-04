@@ -1,16 +1,33 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-  <h2> Hire ME </h2>
-  <details open>
-    <summary>More details on how and where to find me...</summary>
+  <h2> Hire ME
+    <span class="pull-right">
+      <span><a href="https://www.facebook.com/manuciao8">
+      <i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+      <span><a href="https://twitter.com/MnlSabatino">
+      <i class="fa fa-twitter" aria-hidden="true"></i></a></span>
+      <span><a href="https://www.linkedin.com/in/mnsabatino/">
+      <i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+      <span><a href="https://github.com/ManuCiao">
+      <i class="fa fa-github" aria-hidden="true"></i></a></span>
+    </span>
+  </h2>
+    <details open>
+      <summary>More details on how and where to find me...</summary>
 
-    <address>
-      Written by <a href="mailto:mn.sabatino@gmail.com">Manuela Sabatino</a>.<br>
-      Phone number: +44(0)7598 060 934<br>
-      Website: <a href="http://www.mnsabatino.co.uk">www.mnsabatino.co.uk</a><br>
-      Location: Archway, N19, North London, United Kingdom<br>
-    </address>
-  </details>
+      <address>
+        Written by <a href="mailto:mn.sabatino@gmail.com">Manuela Sabatino</a>.<br>
+        Phone number/Whatsapp: +44(0)7598 060 934<br>
+        Email: <a href="mailto:mn.sabatino@gmail.com">mn.sabatino@gmail.com</a><br>
+        Website: <a href="http://www.mnsabatino.co.uk/blog">www.mnsabatino.co.uk/blog</a><br>
+        Location: St Pancreas Office Address, 5 Pancras Rd, Kings Cross, London N1C 4AG, London, United Kingdom<br>
+      </address>
+      <div id="map-canvas">
+        <iframe src="https://www.google.com/maps/d/embed?mid=11VeVCOcee_jQfn4RqlQ9gJoGAfhy6ova" width="640" height="480"></iframe>
+      </div>
+    </details>
+
+
 
 {% endblock %}

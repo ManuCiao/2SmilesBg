@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse #build URLs by their name and pass optional parameters
 from taggit.managers import TaggableManager
 
+
 class PublishedManager(models.Manager):
     """Change object manager of the models."""
     def get_queryset(self):

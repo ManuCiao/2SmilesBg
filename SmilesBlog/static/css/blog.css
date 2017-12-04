@@ -56,6 +56,12 @@ li {
   padding-left: 15px;
 }
 
+iframe {
+    margin:0 auto;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid;
+}
+
 address {
   padding-left: 20px;
   line-height: 2em;
