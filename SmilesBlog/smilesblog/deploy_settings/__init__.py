@@ -15,6 +15,8 @@ AWS_ACCESS_KEY_ID = get_env_variable("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = get_env_variable("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = get_env_variable("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_REGION_NAME = get_env_variable("AWS_S3_REGION_NAME")
+AWS_UPLOAD_USER = get_env_variable("AWS_UPLOAD_USER")
+AWS_UPLOAD_GROUP = get_env_variable("AWS_UPLOAD_GROUP")
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
