@@ -123,6 +123,8 @@ a:hover {
   width: 20em;
   height: 20em;
   background-size: cover;
+  box-shadow: 10px 10px 5px #888888;
+
 }
 
 .title {
@@ -149,6 +151,8 @@ a:hover {
 .h2-tag {
   color: rgb(255, 169, 73);
   margin: -2em 0 1em 0;
+  padding-top: 1em;
+  font-weight: 600 !important;
 }
 
 .step-links a:link{
@@ -161,8 +165,8 @@ a:hover {
   color: rgb(255, 169, 73);
   width: 1300px;
   margin: 0 auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 2em;
+  margin-bottom: 2em;
   font-size: 17px;
 }
 
@@ -173,7 +177,7 @@ a:hover {
 
 #content,
 #sidebar{
-  margin: 30px 0;
+  margin: 20px 0 10px 0;
 }
 
 #content {
@@ -222,7 +226,7 @@ p.date {
 
 /* pagination */
 .pagination {
-    margin:40px 0;
+    margin:20px 0;
     font-weight:bold;
     color: black;
     text-align: center;
@@ -332,7 +336,7 @@ input[type=submit]:hover {
   }
 
   .thumbnail{
-    margin: 1.2em 0;
+    margin: 2em auto;
   }
 
 }
@@ -340,7 +344,7 @@ input[type=submit]:hover {
 @media (max-width: 768px) {
 
   .thumbnail{
-    margin: 1.2em 0;
+    margin: 1.2em auto;
   }
 
   .container-t{
@@ -380,7 +384,7 @@ input[type=submit]:hover {
     font-size: 1.5rem;
   }
 
-  pre, ul{
+  pre{
     text-align: left;
   }
 
