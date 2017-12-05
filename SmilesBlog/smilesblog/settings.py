@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-# from .config import SECRET_KEY
+from .config import *
 import dj_database_url
 
 def get_env_variable(var_name):
@@ -34,10 +34,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
 
+# AWS Secret keys
+AWS_STORAGE_BUCKET_NAME = 'smilesblogmedia'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+#tell Django-storages the domain to use to refer to static files
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # change it to FALSE when deploy the  app in production otherwise data are exposed.
-
 
 DEBUG = True  #if it is not working turning it in True
 
@@ -58,7 +68,13 @@ INSTALLED_APPS = (
     'blog',
     'taggit',
     'haystack',
+    'storages',
 )
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -139,10 +155,18 @@ USE_L10N = True
 USE_TZ = True
 
 
+#Tell the staticfiles app to use S£Boto3 storage when writing the collected static files
+# when running the `collectstatic`
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_STORAGE)
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -152,12 +176,12 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Media root for images uploaded on the posts
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, DEFAULT_FILE_STORAGE)
 
 # Local SMTP server or defie the configuration of an external SMTP server by adding:
 EMAIL_HOST = 'smtp.gmail.com'
