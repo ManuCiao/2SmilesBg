@@ -32,16 +32,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # AWS Secret keys
-AWS_STORAGE_BUCKET_NAME = 'smilesblogmedia'
-AWS_S3_REGION_NAME = 'eu-west-2'
-AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME")
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_QUERYSTRING_AUTH = False
 #tell Django-storages the domain to use to refer to static files
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
@@ -186,6 +184,6 @@ MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, DEFAULT_FILE_STORAGE)
 # Local SMTP server or defie the configuration of an external SMTP server by adding:
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mn.sabatino@gmail.com'
-EMAIL_HOST_PASSWORD = 'xxx'  # add gmail password
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")  # add gmail password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
