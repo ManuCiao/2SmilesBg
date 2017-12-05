@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from .config import *
+#from .config import *
 import dj_database_url
 
 def get_env_variable(var_name):
