@@ -94,7 +94,7 @@ details[open] > summary::before {
 /* Pseudo-classes ------------------ */
 
 a:link {
-  color: rgb(43, 128, 224) !important;
+  color: rgb(43, 128, 224);
   text-decoration: none;
   font-weight: 600;
 }
