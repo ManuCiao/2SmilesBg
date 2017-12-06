@@ -20,6 +20,8 @@ from blog.sitemaps import PostSitemap
 from django.conf import settings
 from django.conf.urls.static import static
 
+from . import views
+
 sitemaps = {
     'posts': PostSitemap,
 }
@@ -27,6 +29,7 @@ sitemaps = {
 # include the URL patterns defined in the blog/urls.py
 
 urlpatterns = [
+    url(r'^$', views.home, name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls',
                            namespace='blog',
