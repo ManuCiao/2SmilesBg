@@ -9,7 +9,7 @@
 {% block content %}
   <span class="icon-post pull-right"><img class="icon-img" src={% static "img/010-shapes-1.png" %} alt="Like this page"></span>
   <span class="icon-post pull-right"><img class="icon-img" src={% static "img/003-technology-1.png" %} alt="Print this page"></span>
-  <span class="icon-post pull-right"><a href="{% url "blog:post_share" post.id %}"><img class="icon-img" src={% static "img/014-interface.png" %} alt="Share this page"></a></span>
+  <span class="icon-post pull-right"><a href="{% url "blog:post_share" post.id %}#container-btn"><img class="icon-img" src={% static "img/014-interface.png" %} alt="Share this page"></a></span>
 
   <h2>{{ post.title }}</h2>
   <p class="date">Published {{ post.publish }} by {{ post.author }}
@@ -21,7 +21,7 @@
   <h3>Similar posts</h3>
   {% for post in similar_posts %}
     <p>
-      <a href="{{ post.get_absolute_url }}">
+      <a href="{{ post.get_absolute_url }}#container-btn">
         {{ post.title }}
       </a>
     </p>

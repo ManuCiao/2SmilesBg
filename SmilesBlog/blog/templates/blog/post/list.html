@@ -20,7 +20,7 @@
             <p class="tags">
               Tags:
               {% for tag in post.tags.all %}
-                <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}#container-btn">
                   {{ tag.name }}
                 </a>
                 {% if not forloop.last %}, {% endif %}
@@ -29,7 +29,7 @@
             <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
             {{ post.body|markdown|truncatewords_html:8 }}
             <br>
-            <a class="button btn-bord-dark" href="{{ post.get_absolute_url }}" role="button">Read More &raquo;</a>
+            <a class="button btn-bord-dark" href="{{ post.get_absolute_url }}#container-btn" role="button">Read More &raquo;</a>
         </div>
 
         <div class="col-lg-5">
