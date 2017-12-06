@@ -45,7 +45,7 @@ img {
 }
 
 ul,
-ol{
+ol {
   padding-left: 30px;
   line-height: 2em;
   margin: 15px 0;
@@ -59,7 +59,7 @@ li {
 iframe {
     width: 90%;
     height: 420px;
-    margin: 20px;
+    margin: 30px 20px;
     box-shadow: 10px 10px 5px #888888;
     border: 1px solid;
 }
@@ -78,7 +78,7 @@ summary {
   padding-bottom: 20px;
 }
 
-  summary::-webkit-details-marker {
+summary::-webkit-details-marker {
   display: none;
 }
 
@@ -94,17 +94,19 @@ details[open] > summary::before {
 /* Pseudo-classes ------------------ */
 
 a:link {
-  color: rgb(255, 169, 73);
+  color: rgb(43, 128, 224) !important;
   text-decoration: none;
   font-weight: 600;
-
 }
 
 a:hover {
-  color: rgba(255, 169, 73, .4);
+  color: rgba(255, 169, 73, .4) !important;
 }
 
-
+.icon-img:hover{
+  -webkit-filter: opacity(.5) drop-shadow(0 0 0 rgba(255, 169, 73, .4));
+  filter: opacity(.5) drop-shadow(0 0 0 rgba(255, 169, 73, .4));
+}
 
 /* Main Styles --------------------- */
 
@@ -124,7 +126,6 @@ a:hover {
   height: 20em;
   background-size: cover;
   box-shadow: 10px 10px 5px #888888;
-
 }
 
 .title {
@@ -177,7 +178,7 @@ a:hover {
 
 #content,
 #sidebar{
-  margin: 20px 0 10px 0;
+  margin: 20px 0 20px 0;
 }
 
 #content {
@@ -219,7 +220,6 @@ p.date {
 .icon-post {
   font-size: 1.3em;
   padding: 0 5px;
-  box-shadow: 2px 2px 2px 1px orange;
   margin: .87em .2em;
 }
 
@@ -303,9 +303,8 @@ input[type=submit]:hover {
 #main-footer #p-footer{
   color: initial;
   font-size: 1em;
-  padding: 1.05em 0 .7em 0;
+  padding: .05em 0 .5em 0;
 }
-
 
 
 /*Media Queries ---- */
@@ -388,6 +387,11 @@ input[type=submit]:hover {
     text-align: left;
   }
 
+  ul {
+    padding-left: none;
+    list-style-type: none;
+  }
+
   .featurette-image{
     margin: 10px 2px;
   }
@@ -413,6 +417,14 @@ input[type=submit]:hover {
 
   .pull-right {
     float: none !important;
+  }
+  .hire-icon {
+    margin-top: 20px;
+  }
+
+  .icon span {
+    text-align: center;
+    margin-right: 10px !important;
   }
 
 }

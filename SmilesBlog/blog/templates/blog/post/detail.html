@@ -1,13 +1,15 @@
 {% extends "blog/base.html" %}
 
+{% load staticfiles %}
+
 {% load blog_tags %}
 
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
-  <span class="icon-post pull-right"><a href=""><i class="fa fa-heart" aria-hidden="true"></i></a></span>
-  <span class="icon-post pull-right"><a href=""><i class="fa fa-print" aria-hidden="true"></i></a></span>
-  <span class="icon-post pull-right"><a href="{% url "blog:post_share" post.id %}"><i class="fa fa-share" aria-hidden="true"></i></a></span>
+  <span class="icon-post pull-right"><img class="icon-img" src={% static "img/010-shapes-1.png" %} alt="Like this page"></span>
+  <span class="icon-post pull-right"><img class="icon-img" src={% static "img/003-technology-1.png" %} alt="Print this page"></span>
+  <span class="icon-post pull-right"><a href="{% url "blog:post_share" post.id %}"><img class="icon-img" src={% static "img/014-interface.png" %} alt="Share this page"></a></span>
 
   <h2>{{ post.title }}</h2>
   <p class="date">Published {{ post.publish }} by {{ post.author }}

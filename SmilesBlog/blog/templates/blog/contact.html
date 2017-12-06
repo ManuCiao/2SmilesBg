@@ -1,26 +1,28 @@
 {% extends "blog/base.html" %}
 
+{% load staticfiles%}
+
 {% block content %}
   <h2> Hire ME
-    <span class="pull-right">
-      <span><a href="https://www.facebook.com/manuciao8">
-      <i class="fa fa-facebook" aria-hidden="true"></i></a></span>
-      <span><a href="https://twitter.com/MnlSabatino">
-      <i class="fa fa-twitter" aria-hidden="true"></i></a></span>
-      <span><a href="https://www.linkedin.com/in/mnsabatino/">
-      <i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
-      <span><a href="https://github.com/ManuCiao">
-      <i class="fa fa-github" aria-hidden="true"></i></a></span>
+    <span class="pull-right hire-icon">
+      <span><a href="https://www.facebook.com/manuciao8" target="_blank">
+        <img class="icon-img" src={% static "img/023-social.png" %} alt="https://www.facebook.com/manuciao8"></a></span>
+      <span><a href="https://twitter.com/MnlSabatino" target="_blank">
+        <img class="icon-img" src={% static "img/013-social-media-7.png" %} alt="https://twitter.com/MnlSabatino"></a></span>
+      <span><a href="https://www.linkedin.com/in/mnsabatino/" target="_blank">
+        <img class="icon-img" src={% static "img/019-social-media-6.png" %} alt="https://www.linkedin.com/in/mnsabatino"></a></span>
+      <span><a href="https://github.com/ManuCiao" target="_blank">
+        <img class="icon-img" src={% static "img/004-circle.png" %} alt="https://github.com/ManuCiao"></a></span>
     </span>
   </h2>
     <details open>
       <summary>More details on how and where to find me...</summary>
 
       <address>
-        Written by <a href="mailto:mn.sabatino@gmail.com">Manuela Sabatino</a>.<br>
+        Written by <a href="mailto:mn.sabatino@gmail.com" target="_blank">Manuela Sabatino</a>.<br>
         Phone number/Whatsapp: +44(0)7598 060 934<br>
-        Email: <a href="mailto:mn.sabatino@gmail.com">mn.sabatino@gmail.com</a><br>
-        Website: <a href="http://www.mnsabatino.co.uk/blog">www.mnsabatino.co.uk/blog</a><br>
+        Email: <a href="mailto:mn.sabatino@gmail.com" target="_blank">mn.sabatino@gmail.com</a><br>
+        Website: <a href="https://mnsabatino-blog.herokuapp.com/blog" target="_blank">mnsabatino-blog.herokuapp.com/blog</a><br>
         Location: St Pancreas Office Address, 5 Pancras Rd, Kings Cross, London N1C 4AG, London, United Kingdom<br>
       </address>
       <div id="map-canvas">
