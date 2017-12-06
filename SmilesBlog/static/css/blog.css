@@ -110,6 +110,12 @@ a:hover {
 
 /* Main Styles --------------------- */
 
+.extra-nav {
+  background:-webkit-linear-gradient(#000, transparent 100%),-webkit-linear-gradient(#000, transparent);
+  background:-o-linear-gradient(#000, transparent 100%),-o-linear-gradient(#000, transparent);
+  background:linear-gradient(#000, transparent 100%),linear-gradient(#000, transparent);
+}
+
 .main-header {
   padding-top: 170px;
   height: 500px;

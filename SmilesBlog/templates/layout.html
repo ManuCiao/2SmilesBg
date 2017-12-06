@@ -37,13 +37,13 @@
   <body>
 
     <!-- ====== Navigation ======  -->
-    <nav class="navbar fixed-top local-nav navbar-custom tt-default-nav">
+    <nav class="navbar fixed-top local-nav navbar-custom tt-default-nav extra-nav" style="">
 		  <div class="container">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
@@ -56,10 +56,10 @@
 
 			  <!-- links -->
 		      <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url "home" %}">Home</a></li>
-		        <li><a href="{% url "blog:post_list" %}">Blog</a></li>
-		        <li><a href="{% url "blog:about" %}">About</a></li>
-		        <li><a href="{% url "blog:contact" %}">Contact</a></li>
+            <li><a class="scroll" href="{% url "home" %}">Home</a></li>
+		        <li><a class="scroll" href="{% url "blog:post_list" %}">Blog</a></li>
+		        <li><a class="scroll" href="{% url "blog:about" %}">About</a></li>
+		        <li><a class="scroll" href="{% url "blog:contact" %}">Contact</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container -->
@@ -75,7 +75,7 @@
 					<h1>Manuela's Blog</h1>
 					<a href="{% url "blog:about" %}"><button class="button btn-bord-light">WHO AM I?</button></a>
 				</div>
-				<div class="button-scroll" data-scrollTo="#content"><span></span></div>
+				<a href="#container-btn"><div  id="container-btn" class="button-scroll"><span></span></div></a>
 			</div>
     </header>
     <!-- ====== End Header ======  -->
@@ -161,18 +161,18 @@
 		<!--====== End Footer ======-->
 
     <!--====== js ======-->
-		  <!-- jQuery -->
-  		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-  		<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
-
-  	  <!-- bootstrap -->
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   		<!-- singlePageNav -->
   		<script src="{% static "js/jquery.singlepagenav.min.js" %}"></script>
+      <!-- custom js -->
+      <script src="{% static "js/custom.js" %}"></script>
 
-    	<!-- custom js -->
-    	<script src="{% static "js/custom.js" %}"></script>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+      <!-- bootstrap -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </body>
 
