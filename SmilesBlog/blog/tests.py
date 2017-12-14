@@ -60,8 +60,11 @@ class BlogViewTests(TestCase):
         )
         self.now = timezone.now()
 
+
     def test_blog_list_view(self):
         resp = self.client.get(reverse('blog:post_list'))
         self.assertEqual(resp.status_code, 200)
         #self.assertEqual(self.post, resp.context['posts'])
         #self.assertIn(self.post2, resp.context['posts'])
+        #self.assertTemplateUsed(resp, 'blog/post/list.html')
+        #self.assertContains(resp, self.post.title)

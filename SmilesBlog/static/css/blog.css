@@ -455,6 +455,7 @@ input[type=submit]:hover {
     position: relative;
     padding: 0;
     list-style: none!important;
+    margin-bottom: 4rem;
 }
 
 .timeline:before {

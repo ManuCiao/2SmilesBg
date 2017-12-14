@@ -28,7 +28,10 @@ class Post(models.Model):
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
                               default='draft')
-    image = models.ImageField(upload_to='img', default='img_default/index.svg', max_length=500, blank=True)
+    image = models.ImageField(upload_to='img',
+                              default='img_default/index.svg',
+                              max_length=500,
+                              blank=True)
     objects = models.Manager() # the default Manager
     published = PublishedManager() # the custom manager
     tags = TaggableManager() # the tags manager to add, retrieve and remove tags
