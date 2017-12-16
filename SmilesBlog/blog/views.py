@@ -1,14 +1,47 @@
+import time
+from calendar import month_name
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
+from django.views.generic.dates import YearArchiveView
 from django.core.mail import send_mail
 from django.db.models import Count
+from datetime import datetime
 
 from taggit.models import Tag
 
 from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm, SearchForm
 from haystack.query import SearchQuerySet
+
+
+def year_archive(request, year):
+    posts_per_year = Post.published.filter(publish__year=year)
+    return render(request, 'blog/post/archive_year.html', {'year':year,
+                                                           'post_list_year':posts_per_year})
+
+# def mkmonth_lst():
+#     """Make a list of months to show archive links."""
+#
+#     if not Post.published.count():
+#         return []
+#
+#     # set up vars
+#     year, month = time.localtime()[:2]
+#     first = Post.published.order_by("-publish")[0]
+#     fyear = first.publish.year
+#     fmonth = first.publish.month
+#     months = []
+#
+#     # loop over years and months
+#     for y in range(year, fyear-1, -1):
+#         start, end = 12, 0
+#         if y == year: start = month
+#         if y == fyear: end = fmonth-1
+#
+#         for m in range(start, end, -1):
+#             months.append((y, m, month_name[m]))
+#     return months
 
 
 def post_list(request, tag_slug=None):
@@ -32,10 +65,12 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/post/list.html', {'page': page,
                                                    'posts': posts,
                                                    'tag': tag})
+                                                   #,'months':mkmonth_lst()})
 
 
 def about(request):
     return render(request, 'blog/about.html')
+
 
 def contact(request):
     return render(request, 'blog/contact.html')
@@ -80,7 +115,6 @@ def post_detail(request, year, month, day, post):
                                                      'comments': comments,
                                                      'comment_form': comment_form,
                                                      'similar_posts': similar_posts})
-
 
 
 def post_share(request, post_id):

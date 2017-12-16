@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% load blog_tags %}
+
+{% block title %}Posts for {{ year }}{% endblock %}
+
+
+{% block content %}
+  <h2> Posts for {{ year }}</h2>
+  {% for post in post_list_year %}
+      <p><a class="" href="{{ post.get_absolute_url }}#container-btn">{{ post.title }}</a>
+      <span><p class="date">(Published {{ post.publish }} by {{ post.author }})</p></span></p>
+
+  {% endfor %}
+{% endblock %}

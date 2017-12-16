@@ -26,8 +26,7 @@ def get_most_commented_posts(count=5):
     ).order_by('-total_comments')[:count]
 
 
-#use markdown sintax in my blog posts and tene converrt the post contents to html
+#use markdown sintax in my blog posts and convert the post contents to html
 @register.filter(name='markdown')
 def markdown_format(text):
     return mark_safe(markdown.markdown(text))
-    

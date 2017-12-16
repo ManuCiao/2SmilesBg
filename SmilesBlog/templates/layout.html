@@ -94,10 +94,17 @@
           <div id="sidebar">
 
             <h2>MS Blog</h2>
-              <p>This is my blog. I have written {% total_posts %} posts so far.</p>
+              <p>This is my new blog created using <a href="http://www.djangoproject.com">Django</a>,
+                 a <a href="http://www.python.org">Python</a> web framework. This site is under construction.
+                 I have written {% total_posts %} posts so far.</p>
               <p><a href="{% url "blog:post_feed" %}">Subscribe to my RSS feed</a></p>
+
+              <hr class="featurette-divider">
+
               <h3>Latest posts</h3>
               {% show_latest_posts %}
+
+              <hr class="featurette-divider">
 
               <h3>Most commented posts</h3>
               {% get_most_commented_posts as most_commented_posts %}
@@ -108,6 +115,17 @@
                 </li>
                 {% endfor %}
               </ul>
+
+              <hr class="featurette-divider">
+
+              <!-- <h2>Monthly Archive</h2>
+              <ul>
+                {% for month in months %}
+                  {% ifchanged month.0 %} {{ month.0 }} <br /> {% endifchanged %}
+                    <li><a href="{% url "blog:post_list" month.0 month.1 %}">{{ month.2 }}</a></li>
+                {% endfor %}
+              </ul>
+              <hr class="featurette-divider"> -->
 
           </div>
 
