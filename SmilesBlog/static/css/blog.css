@@ -210,7 +210,7 @@ a:hover {
   padding-bottom: 30px;
 }
 
-p.date {
+p.date, span.date {
     color: #7d7b7b;
     font-family: georgia, serif;
     font-size: .8em;

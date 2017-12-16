@@ -6,6 +6,8 @@ register = template.Library()
 
 from ..models import Post
 
+import time
+#from calendar import month_name
 import markdown
 
 @register.simple_tag  #Processes the data and returns a string - add (e.g. name='my_tag')
@@ -17,6 +19,15 @@ def total_posts():
 def show_latest_posts(count=5):
     latest_posts = Post.published.order_by('-publish') [:count]
     return {'latest_posts': latest_posts}
+
+@register.inclusion_tag('blog/post/posts_per_years.html')
+def show_posts_per_year():
+    post = Post.published.order_by("-publish")
+    #year = post.publish.year
+    year =  time.localtime()[:1][0]
+    posts_per_year = post.filter(publish__year=year)
+    return {'year':year, 'post_list_year':posts_per_year}
+
 
 #add the most commented posts
 @register.assignment_tag

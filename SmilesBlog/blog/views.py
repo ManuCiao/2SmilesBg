@@ -1,5 +1,5 @@
-import time
-from calendar import month_name
+#import time
+#from calendar import month_name
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
@@ -17,7 +17,7 @@ from haystack.query import SearchQuerySet
 
 def year_archive(request, year):
     posts_per_year = Post.published.filter(publish__year=year)
-    return render(request, 'blog/post/archive_year.html', {'year':year,
+    return render(request, 'blog/archive_year.html', {'year':year,
                                                            'post_list_year':posts_per_year})
 
 # def mkmonth_lst():

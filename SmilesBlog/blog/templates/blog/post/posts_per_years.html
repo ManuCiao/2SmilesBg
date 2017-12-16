@@ -1,0 +1,7 @@
+<ul>
+  {% with post_list_year.count as total_year_posts %}
+  <li>
+      <p>{{ year}} <a href="{% url "blog:post_list" %}{{ year }}#container-btn">({{ total_year_posts }})</a></p>
+  </li>
+  {% endwith %}
+</ul>
