@@ -32,13 +32,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "%+liiiw8w^1x0+0b0o!op*tiz*&8e=9psu%ox_)5%a^7b-kz1q")
+SECRET_KEY = get_env_variable("SECRET_KEY")
 
 # AWS Secret keys
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME")
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = get_env_variable("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = get_env_variable("AWS_S3_REGION_NAME")
+AWS_ACCESS_KEY_ID = get_env_variable("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = get_env_variable("AWS_SECRET_ACCESS_KEY")
 AWS_QUERYSTRING_AUTH = False
 AWS_UPLOAD_USER = "smilesbloguser"
 AWS_UPLOAD_GROUP = "manage-smilesblogmedia"
@@ -128,9 +128,9 @@ WSGI_APPLICATION = 'smilesblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'smilesblog',
-        'USER': 'manuciao',
-        'PASSWORD': '',
+        'NAME': get_env_variable('NAME_DB'),
+        'USER': get_env_variable('USER_DB'),
+        'PASSWORD': get_env_variable('PASSWORD_DB'),
         'HOST': '',
         'PORT': '',
     }
@@ -184,8 +184,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, DEFAULT_FILE_STORAGE)
 
 # Local SMTP server or defie the configuration of an external SMTP server by adding:
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mn.sabatino@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")  # add gmail password
+EMAIL_HOST = get_env_variable("EMAIL_HOST")
+EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")  # add gmail password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
