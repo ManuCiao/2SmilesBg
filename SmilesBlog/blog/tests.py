@@ -1,4 +1,3 @@
-from datetime import datetime
 from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
@@ -52,7 +51,7 @@ class BlogViewTests(TestCase):
             slug = "test-post-number-1",
             author = self.user,
             body = "Description of the Post test 2..."
-            publish = datetime.today()
+            #publish = datetime.today()
         )
         self.comment = Comment.objects.create(
             post = self.post,
@@ -77,19 +76,21 @@ class BlogViewTests(TestCase):
 
 class HomePageTests(TestCase):
     """Test whether our blog entries show up on the homepage"""
-
     def setUp(self):
+        from datetime import datetime
         self.user = get_user_model().objects.create(username='Mr-X')
         self.now = datetime.today()
 
     def test_one_user_entry(self):
-        Post.objects.create(
+        post = Post.objects.create(
                             title = "Test Post number 1",
                             slug = "test-post-number-1",
                             author = self.user,
+                            publish = timezone.now(),
                             body = "Description of the Post test 1..."
-                            publish = self.now                           )
-        resp = self.client.get('/self.now.year/self.now.month/self.now.day/self.post')
+                            )
+        year = self.now.year
+        resp = self.client.get(reverse('blog:post_list'))
+        self.assertEqual(resp.status_code, 200)
         self.assertContains(resp, 'Test Post number 1')
         self.assertContains(resp, 'Description of the Post test 1...')
-        self.assertContains(resp, 'Published {0} by {1}'.format(publish, author))

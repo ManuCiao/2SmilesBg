@@ -1,0 +1,8 @@
+<article class="">
+  {% for post in all_posts %}
+    <a href="{{ post.get_absolute_url }}#container-btn">{{ post.title }}</a>
+      <span class="date"><time>(Published {{ post.publish|date }} by {{ post.author }})</time></span><br>
+  {% empty %}
+    <p>No blog posts have been published yet.</p>
+  {% endfor %}
+</article>

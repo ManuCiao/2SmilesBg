@@ -20,6 +20,11 @@ def show_latest_posts(count=5):
     latest_posts = Post.published.order_by('-publish') [:count]
     return {'latest_posts': latest_posts}
 
+@register.inclusion_tag('blog/post/list_title.html')
+def show_all_posts():
+    all_posts = Post.published.all().order_by('-publish')
+    return {'all_posts': all_posts}
+
 @register.inclusion_tag('blog/post/posts_per_years.html')
 def show_posts_per_year():
     post = Post.published.order_by("-publish")
@@ -27,7 +32,6 @@ def show_posts_per_year():
     year =  time.localtime()[:1][0]
     posts_per_year = post.filter(publish__year=year)
     return {'year':year, 'post_list_year':posts_per_year}
-
 
 #add the most commented posts
 @register.assignment_tag
