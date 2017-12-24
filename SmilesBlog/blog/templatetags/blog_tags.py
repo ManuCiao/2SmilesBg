@@ -1,6 +1,7 @@
 from django.utils.safestring import mark_safe
 from django.db.models import Count
 from django import template
+from django.template.defaultfilters import stringfilter
 
 register = template.Library()
 
@@ -9,6 +10,28 @@ from ..models import Post
 import time
 #from calendar import month_name
 import markdown
+import bleach
+
+ALLOWED_TAGS = [
+    'h1','h2','h3','h4','h5','h6',
+    'p','dl','dt','dd','ul','ol','li',
+    'table', 'thead', 'th', 'tr','td', 'tbody',
+    'b','i','strong','em','tt',
+    'span','div','blockquote','code','pre',
+    'hr','br',
+    'a','img',
+    'abbr',
+    'acronym',
+    'br',
+]
+
+ALLOWED_ATTRIBUTES = {
+    '*': ['class', 'id'],
+    'a': ['href', 'title'],
+    'abbr': ['title'],
+    'acronym': ['title'],
+    'img': ['src', 'alt'],
+}
 
 @register.simple_tag  #Processes the data and returns a string - add (e.g. name='my_tag')
 def total_posts():
@@ -42,6 +65,11 @@ def get_most_commented_posts(count=5):
 
 
 #use markdown sintax in my blog posts and convert the post contents to html
-@register.filter(name='markdown')
-def markdown_format(text):
-    return mark_safe(markdown.markdown(text))
+# @register.filter(name='markdown')
+# def markdown_format(text):
+#     return mark_safe(markdown.markdown(text))
+
+@register.filter(is_safe=True, name='markdown')
+def mrkdown(value):
+    html = bleach.linkify(bleach.clean(markdown.markdown(value, ['markdown.extensions.extra', 'markdown.extensions.admonition', 'markdown.extensions.tables', 'markdown.extensions.toc(permalink=True)']), tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES))
+    return mark_safe(html)
