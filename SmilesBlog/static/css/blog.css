@@ -91,6 +91,10 @@ details[open] > summary::before {
   content: '\25BC';
 }
 
+
+blockquote {
+  padding: 0 20px;
+}
 /* Pseudo-classes ------------------ */
 
 a:link {
