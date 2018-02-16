@@ -37,7 +37,7 @@ ALLOWED_ATTRIBUTES = {
 def total_posts():
     return Post.published.count()
 
-# an inclusion_tag ca render a template with context variable returned by your template tag
+# an inclusion_tag can render a template with context variable returned by your template tag
 @register.inclusion_tag('blog/post/latest_posts.html')
 def show_latest_posts(count=5):
     latest_posts = Post.published.order_by('-publish') [:count]
@@ -48,13 +48,22 @@ def show_all_posts():
     all_posts = Post.published.all().order_by('-publish')
     return {'all_posts': all_posts}
 
+def year_array():
+    years = []
+    post = Post.published.order_by("publish")
+    fyear = post[0].publish.year
+    cyear = time.localtime()[0]
+    for y in range(cyear, fyear-1, -1):
+        years.append(y)
+    return years
+
+
 @register.inclusion_tag('blog/post/posts_per_years.html')
 def show_posts_per_year():
-    post = Post.published.order_by("-publish")
-    #year = post.publish.year
-    year =  time.localtime()[:1][0]
-    posts_per_year = post.filter(publish__year=year)
-    return {'year':year, 'post_list_year':posts_per_year}
+    posts_per_year = Post.published.order_by("publish")
+    return {
+            'post_list_year':posts_per_year,
+            'year_archive':year_array()}
 
 #add the most commented posts
 @register.assignment_tag
@@ -71,5 +80,11 @@ def get_most_commented_posts(count=5):
 
 @register.filter(is_safe=True, name='markdown')
 def mrkdown(value):
-    html = bleach.linkify(bleach.clean(markdown.markdown(value, ['markdown.extensions.extra', 'markdown.extensions.admonition', 'markdown.extensions.tables', 'markdown.extensions.toc(permalink=True)']), tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES))
+    html = bleach.linkify(bleach.clean(markdown.markdown(value,
+    ['markdown.extensions.extra',
+     'markdown.extensions.admonition',
+     'markdown.extensions.tables',
+     'markdown.extensions.toc(permalink=True)']),
+     tags=ALLOWED_TAGS,
+     attributes=ALLOWED_ATTRIBUTES))
     return mark_safe(html)

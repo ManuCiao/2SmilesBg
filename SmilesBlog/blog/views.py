@@ -1,5 +1,3 @@
-#import time
-#from calendar import month_name
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
@@ -18,7 +16,7 @@ from haystack.query import SearchQuerySet
 def year_archive(request, year):
     posts_per_year = Post.published.filter(publish__year=year)
     return render(request, 'blog/archive_year.html', {'year':year,
-                                                           'post_list_year':posts_per_year})
+                                                      'post_list_year':posts_per_year})
 
 # def mkmonth_lst():
 #     """Make a list of months to show archive links."""
@@ -28,7 +26,7 @@ def year_archive(request, year):
 #
 #     # set up vars
 #     year, month = time.localtime()[:2]
-#     first = Post.published.order_by("-publish")[0]
+#     first = Post.published.order_by("publish")[0]
 #     fyear = first.publish.year
 #     fmonth = first.publish.month
 #     months = []
