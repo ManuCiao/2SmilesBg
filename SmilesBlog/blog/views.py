@@ -5,7 +5,7 @@ from django.views.generic.dates import YearArchiveView
 from django.core.mail import send_mail
 from django.db.models import Count
 from datetime import datetime
-
+from calendar import month_name
 from taggit.models import Tag
 
 from .models import Post, Comment
@@ -19,11 +19,11 @@ def year_archive(request, year):
                                                       'post_list_year':posts_per_year})
 
 def month(request, year, month):
-    from calendar import month_name
     posts_per_year = Post.published.filter(publish__year=year)
     posts_per_month = Post.published.filter(publish__month=month)
     mName = month_name[int(month)]
-    return render(request, 'blog/archive_month.html', {'month':mName,
+    return render(request, 'blog/archive_month.html', {'year':year,
+                                                      'month':mName,
                                                       'post_list_month':posts_per_month,
                                                       'post_list_year':posts_per_year,
                                                       })
