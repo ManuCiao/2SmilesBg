@@ -1,8 +1,16 @@
-{% for y in year_archive %}
-  <ul>
+{% for post in archive_counts %}
+<ul>
+    {% if post.isyear %}
+      {% if not forloop.first %}
+        <br>
+      {% endif %}
 
-    <li>
-        <a href="{% url "blog:post_list" %}{{ y }}#container-btn">{{ y }} </a>
-    </li>
-  </ul>
+        <h5><a href="{% url "blog:post_list" %}{{ line.year }}/#container-btn">{{ post.year }}</a> ({{ post.count }})</h5>
+    {% else %}
+        <li>
+          <a href="{% url "blog:post_list" %}#container-btn"">{{ post.monthname }}</a> ({{ post.count }})<br>
+          <!-- <a href="{% url "blog:post_list" %}{{ line.yearmonth }}/#container-btn">{{ post.monthname }}</a> ({{ post.count }})<br> -->
+        </li>
+    {% endif %}
+</ul>
 {% endfor %}

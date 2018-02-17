@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% load blog_tags %}
+
+{% block title %}Posts for {{ month }} {% endblock %}
+
+{% block content %}
+  <h2> Posts for {{ month }} {{ year }}</h2>
+  {% for post in post_list_month %}
+      <ul>
+        <li><p><a class="" href="{{ post.get_absolute_url }}#container-btn">{{ post.title }} </a>
+        <span><small>(Published {{ post.publish }})</small></span></p></li>
+      </ul>
+
+  {% endfor %}
+
+  <hr class="featurette-divider">
+  {% with post_list_year.count as total_year_posts %}
+    <h3> In total there are <strong>{{ total_year_posts }}</strong> post{{ total_year_posts|pluralize }} for {{ year }}.</h3>
+  {% endwith %}
+
+{% endblock %}

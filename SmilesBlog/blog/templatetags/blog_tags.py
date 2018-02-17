@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.utils.safestring import mark_safe
 from django.db.models import Count
 from django import template
@@ -7,8 +8,6 @@ register = template.Library()
 
 from ..models import Post
 
-import time
-#from calendar import month_name
 import markdown
 import bleach
 
@@ -33,6 +32,22 @@ ALLOWED_ATTRIBUTES = {
     'img': ['src', 'alt'],
 }
 
+MONTH_NAMES = (
+    '',
+    'January',
+    'Feburary',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December')
+
+
 @register.simple_tag  #Processes the data and returns a string - add (e.g. name='my_tag')
 def total_posts():
     return Post.published.count()
@@ -48,22 +63,38 @@ def show_all_posts():
     all_posts = Post.published.all().order_by('-publish')
     return {'all_posts': all_posts}
 
-def year_array():
-    years = []
-    post = Post.published.order_by("publish")
-    fyear = post[0].publish.year
-    cyear = time.localtime()[0]
-    for y in range(cyear, fyear-1, -1):
-        years.append(y)
-    return years
-
+def create_archive_data(posts):
+    archive_data = []
+    count = {}
+    mcount = {}
+    for post in posts:
+        year = post.publish.year
+        month = post.publish.month
+        if year not in count:
+            count[year] = 1
+            mcount[year] = {}
+        else:
+            count[year] += 1
+        if month not in mcount[year]:
+            mcount[year][month] = 1
+        else:
+            mcount[year][month] += 1
+    for year in sorted(count.keys(), reverse=True):
+        archive_data.append({'isyear': True,
+                             'year': year,
+                             'count': count[year],})
+        for month in sorted(mcount[year].keys(), reverse=True):
+            archive_data.append({'isyear': False,
+                                 'yearmonth': '%d/%02d' % (year, month),
+                                 'monthname': MONTH_NAMES[month],
+                                 'count': mcount[year][month],})
+    return archive_data
 
 @register.inclusion_tag('blog/post/posts_per_years.html')
 def show_posts_per_year():
-    posts_per_year = Post.published.order_by("publish")
-    return {
-            'post_list_year':posts_per_year,
-            'year_archive':year_array()}
+    posts = Post.published.all()
+    archive_data = create_archive_data(posts)
+    return {'posts':posts, 'archive_counts':archive_data,}
 
 #add the most commented posts
 @register.assignment_tag
@@ -71,7 +102,6 @@ def get_most_commented_posts(count=5):
     return Post.published.annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
-
 
 #use markdown sintax in my blog posts and convert the post contents to html
 # @register.filter(name='markdown')
