@@ -18,29 +18,15 @@ def year_archive(request, year):
     return render(request, 'blog/archive_year.html', {'year':year,
                                                       'post_list_year':posts_per_year})
 
-def year_array():
-    import time
-    from calendar import month_name
-    if not Post.published.count():
-        return []
-    year, month = time.localtime()[:2]
-    first = Post.published.order_by("publish")[0]
-    fyear = first.publish.year
-    fmonth = first.publish.month
-    months = []
-    for y in range(year, fyear-1, -1):
-        start, end = 12, 0
-        if y == year: start = month
-        if y == fyear: end = fmonth-1
-        for m in range(start, end, -1):
-            months.append((y, m, month_name[m]))
-    return months
-
 def month(request, year, month):
+    from calendar import month_name
     posts_per_year = Post.published.filter(publish__year=year)
     posts_per_month = Post.published.filter(publish__month=month)
-    return render(request, 'blog/archive_month.html', {'months':year_array(),
-                                                      'post_list_month':posts_per_month})
+    mName = month_name[int(month)]
+    return render(request, 'blog/archive_month.html', {'month':mName,
+                                                      'post_list_month':posts_per_month,
+                                                      'post_list_year':posts_per_year,
+                                                      })
 
 
 def post_list(request, tag_slug=None):

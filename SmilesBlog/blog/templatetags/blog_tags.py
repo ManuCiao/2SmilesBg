@@ -82,7 +82,8 @@ def create_archive_data(posts):
     for year in sorted(count.keys(), reverse=True):
         archive_data.append({'isyear': True,
                              'year': year,
-                             'count': count[year],})
+                             'count': count[year],
+                             })
         for month in sorted(mcount[year].keys(), reverse=True):
             archive_data.append({'isyear': False,
                                  'yearmonth': '%d/%02d' % (year, month),

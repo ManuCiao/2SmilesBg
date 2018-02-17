@@ -5,11 +5,11 @@
         <br>
       {% endif %}
 
-        <h5><a href="{% url "blog:post_list" %}{{ line.year }}/#container-btn">{{ post.year }}</a> ({{ post.count }})</h5>
+        <h5><a href="{% url "blog:post_list" %}{{ post.year }}/#container-btn">{{ post.year }}</a> ({{ post.count }})</h5>
     {% else %}
         <li>
-          <a href="{% url "blog:post_list" %}#container-btn"">{{ post.monthname }}</a> ({{ post.count }})<br>
-          <!-- <a href="{% url "blog:post_list" %}{{ line.yearmonth }}/#container-btn">{{ post.monthname }}</a> ({{ post.count }})<br> -->
+          <!-- <a href="{% url "blog:post_list" %}#container-btn">{{ post.monthname }}</a> ({{ post.count }})<br> -->
+          <a href="{% url "blog:post_list" %}{{ post.yearmonth }}/#container-btn">{{ post.monthname }}</a> ({{ post.count }})<br>
         </li>
     {% endif %}
 </ul>

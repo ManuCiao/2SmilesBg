@@ -14,9 +14,4 @@
 
   {% endfor %}
 
-  <hr class="featurette-divider">
-  {% with post_list_year.count as total_year_posts %}
-    <h3> In total there are <strong>{{ total_year_posts }}</strong> post{{ total_year_posts|pluralize }} for {{ year }}.</h3>
-  {% endwith %}
-
 {% endblock %}
