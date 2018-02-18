@@ -50,7 +50,6 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/post/list.html', {'page': page,
                                                    'posts': posts,
                                                    'tag': tag})
-                                                   #,'months':mkmonth_lst()})
 
 
 def about(request):

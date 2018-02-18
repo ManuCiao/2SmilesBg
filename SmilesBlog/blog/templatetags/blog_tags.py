@@ -32,22 +32,6 @@ ALLOWED_ATTRIBUTES = {
     'img': ['src', 'alt'],
 }
 
-MONTH_NAMES = (
-    '',
-    'January',
-    'Feburary',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December')
-
-
 @register.simple_tag  #Processes the data and returns a string - add (e.g. name='my_tag')
 def total_posts():
     return Post.published.count()
@@ -64,6 +48,7 @@ def show_all_posts():
     return {'all_posts': all_posts}
 
 def create_archive_data(posts):
+    from calendar import month_name
     archive_data = []
     count = {}
     mcount = {}
@@ -87,7 +72,7 @@ def create_archive_data(posts):
         for month in sorted(mcount[year].keys(), reverse=True):
             archive_data.append({'isyear': False,
                                  'yearmonth': '%d/%02d' % (year, month),
-                                 'monthname': MONTH_NAMES[month],
+                                 'monthname': month_name[int(month)],
                                  'count': mcount[year][month],})
     return archive_data
 
