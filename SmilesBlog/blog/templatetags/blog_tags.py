@@ -82,14 +82,14 @@ def show_posts_per_year():
     archive_data = create_archive_data(posts)
     return {'posts':posts, 'archive_counts':archive_data,}
 
-#add the most commented posts
+# add the most commented posts
 @register.assignment_tag
 def get_most_commented_posts(count=5):
     return Post.published.annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
 
-#use markdown sintax in my blog posts and convert the post contents to html
+# use markdown sintax in my blog posts and convert the post contents to html
 # @register.filter(name='markdown')
 # def markdown_format(text):
 #     return mark_safe(markdown.markdown(text))
